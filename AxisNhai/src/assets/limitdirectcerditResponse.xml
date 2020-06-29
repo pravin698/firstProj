@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.finacle.com/fixml executeFinacleScript.xsd">
+    <Header>
+        <ResponseHeader>
+            <RequestMessageKey>
+                <RequestUUID>SS20_rawal342</RequestUUID>
+                <ServiceRequestId>executeFinacleScript</ServiceRequestId>
+                <ServiceRequestVersion>10.2</ServiceRequestVersion>
+                <ChannelId>COR</ChannelId>
+            </RequestMessageKey>
+            <ResponseMessageInfo>
+                <BankId>01</BankId>
+                <TimeZone/>
+                <MessageDateTime>2020-04-09T07:50:48.995</MessageDateTime>
+            </ResponseMessageInfo>
+            <UBUSTransaction>
+                <Id/>
+                <Status/>
+            </UBUSTransaction>
+            <HostTransaction>
+                <Id/>
+                <Status>SUCCESS</Status>
+            </HostTransaction>
+            <HostParentTransaction>
+                <Id/>
+                <Status/>
+            </HostParentTransaction>
+            <CustomInfo/>
+        </ResponseHeader>
+    </Header>
+    <Body>
+        <executeFinacleScriptResponse>
+            <ExecuteFinacleScriptOutputVO/>
+            <executeFinacleScript_CustomData>
+                <totRecCnt>7</totRecCnt>
+                <SubsidiaryTranDetails>
+                    <REC_CNT>1</REC_CNT>
+                    <AcctType>PARENT</AcctType>
+                    <AcctNum>918019999658394</AcctNum>
+                    <TranAmount>9900000</TranAmount>
+                    <TranParticulars>TRF FROM 914010011017261</TranParticulars>
+                </SubsidiaryTranDetails>
+                <SubsidiaryTranDetails>
+                    <REC_CNT>2</REC_CNT>
+                    <AcctType>PARENT</AcctType>
+                    <AcctNum>918019999658394</AcctNum>
+                    <TranAmount>26000000000</TranAmount>
+                    <TranParticulars>TRF FROM 910010026139633</TranParticulars>
+                </SubsidiaryTranDetails>
+                <SubsidiaryTranDetails>
+                    <REC_CNT>3</REC_CNT>
+                    <AcctType>PARENT</AcctType>
+                    <AcctNum>918019999658394</AcctNum>
+                    <TranAmount>200000</TranAmount>
+                    <TranParticulars>TRF FROM 918029999658427</TranParticulars>
+                </SubsidiaryTranDetails>
+                <SubsidiaryTranDetails>
+                    <REC_CNT>4</REC_CNT>
+                    <AcctType>CHILD</AcctType>
+                    <AcctNum>918029999658401</AcctNum>
+                    <TranAmount>10000</TranAmount>
+                    <TranParticulars>TRF FROM 918019999658394</TranParticulars>
+                </SubsidiaryTranDetails>
+                <SubsidiaryTranDetails>
+                    <REC_CNT>5</REC_CNT>
+                    <AcctType>CHILD</AcctType>
+                    <AcctNum>918029999658427</AcctNum>
+                    <TranAmount>800000</TranAmount>
+                    <TranParticulars>TRF FROM 918029999658414</TranParticulars>
+                </SubsidiaryTranDetails>
+                <SubsidiaryTranDetails>
+                    <REC_CNT>6</REC_CNT>
+                    <AcctType>PARENT</AcctType>
+                    <AcctNum>918019999658394</AcctNum>
+                    <TranAmount>6324391</TranAmount>
+                    <TranParticulars>918019999658394:Int.Pd:For 07-08-2018</TranParticulars>
+                </SubsidiaryTranDetails>
+                <SubsidiaryTranDetails>
+                    <REC_CNT>7</REC_CNT>
+                    <AcctType>PARENT</AcctType>
+                    <AcctNum>918019999658394</AcctNum>
+                    <TranAmount>210809127</TranAmount>
+                    <TranParticulars>918019999658394:Int.Pd:08-08-2018 to 19-09-2018</TranParticulars>
+                </SubsidiaryTranDetails>
+                <SuccFaiFlag>S</SuccFaiFlag>
+                <Message>SUCCESS</Message>
+            </executeFinacleScript_CustomData>
+        </executeFinacleScriptResponse>
+    </Body>
+</FIXML>

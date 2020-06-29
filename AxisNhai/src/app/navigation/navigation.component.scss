@@ -1,0 +1,95 @@
+.toolbarRow {
+  text-align: center;
+  background-color: #97144d;
+  padding: 0px 0px !important;
+  margin-left: 16px;
+}
+
+.menuBtn {
+  background-color: #ffff;
+}
+
+.mat-icon {
+  color: #97144d;
+}
+
+.mat-list-item {
+  color: #97144d;
+  top: 472px;
+  left: 76px;
+  width: 54px;
+  height: 29px;
+  text-align: left;
+  font: Regular 24px/29px Lato;
+  letter-spacing: 0;
+  border: 1px solid #707070;
+  opacity: 1;
+
+}
+
+.example-container {
+  background-color: #ffff;
+  margin-top: 20px;
+}
+
+.mat-nav-list {
+  background-color: #ffff;
+  padding: 0px;
+}
+
+.mat-sidenav {
+  border: 1px;
+  background-color: #ffff;
+  float: left;
+
+}
+
+.space {
+  margin-right: 13px;
+}
+
+.mat-list-item:focus {
+  background-color: #ffff;
+
+  border-right: 0px;
+}
+
+.icons {
+  width: 22px;
+  height: 24px;
+}
+
+.icons1 {
+  width: 22px;
+  height: 17px;
+}
+
+img {
+  margin-right: 25px;
+}
+
+::ng-deep .mat-toolbar-row,
+.mat-toolbar-single-row {
+  padding: 0px 0px !important;
+  margin-left: 16px;
+  height: 75px !important;
+}
+
+
+::ng-deep .mat-icon-button{
+    line-height: 35px !important;
+    width: 35px !important;
+    height: 35px !important;
+}
+
+.axisColor{
+  background-color: #97144d !important;
+}
+
+.widthfull{
+  width: 100%;
+}
+
+.btnColor{
+  color: #97144d !important;
+}

@@ -1,0 +1,79 @@
+<div id="body">
+  <div class="zonetitlePadding">
+    <div>
+      <h5>Zone</h5>
+    </div>
+    <div class="radio-btns floatright">
+      <input type="radio" class="AmountStyle with-gap displayInline" value="Amount in Rupees" name="Amount"
+        [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+      <label class="color marginlefttwo" for="test1">Amount in Rupees</label>
+
+      <input type="radio" class="AmountStyle displayInline marginleftfifteen" value="Amount in Crores"
+        name="Amount" [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+      <label class="color marginlefttwo" for="test2">Amount in Crores </label>
+    </div>
+    <div class="widthFull floatright">
+      <a (click)="onRefreshClick()">  <img  src="assets/img/refresh.png" class=excel></a>
+      
+      <a (click)="onExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+    </div>
+  </div>
+  <br />
+
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+      <ng-container matColumnDef="zone">
+        <th mat-header-cell class="sr" *matHeaderCellDef> Zone </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.zone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="noofpd">
+        <th mat-header-cell class="sr" *matHeaderCellDef> No. of Project Directors </th>
+        <td mat-cell class="right" *matCellDef="let element">
+          <div *ngIf="element.zone=='ALL'">
+            {{element.NumOfPd}}
+          </div>
+          <div *ngIf="element.zone != 'ALL'">
+            <a class="itc-lb-more-info-link" (click)="getProjectDirectors(element.zone)">
+              {{element.NumOfPd}}
+            </a>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="noofchildacc">
+        <th mat-header-cell class="sr" *matHeaderCellDef> No. of Child Accounts </th>
+        <td mat-cell class="right" *matCellDef="let element">
+          <div *ngIf="element.zone!='ALL'">
+            <a class="itc-lb-more-info-link" 
+              (click)="getSubSidiaryAct(element.zone)">
+              {{element.NumOfSubsdiaryAcct}}
+            </a>
+          </div>
+          <div *ngIf="element.zone=='ALL'">
+            {{element.NumOfSubsdiaryAcct}}
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totallimit">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Total Limit </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.TotLimit | customCurrencyPipe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="usedlimit">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Used Limit </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element">{{element.UsedLimit | customCurrencyPipe}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fundsused">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Fund Used (%) </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.FundUsedPerc | customCurrencyPipe}} % </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

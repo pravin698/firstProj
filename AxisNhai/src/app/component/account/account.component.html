@@ -1,0 +1,148 @@
+<div class="container-fluid">
+  <div id="body">
+    <div class="parentDiv">
+      <div>
+        <h5>Accounts</h5>
+      </div>
+    </div>
+
+    <div class="radio-btns" class="radioDiv">
+      <input class="AmountStyle with-gap displayinline" type="radio" id="amtRupees" value="Amount in Rupees"
+        name="Amount" [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+      <label class="color marginlefttwo" for="amtRupees">Amount in Rupees</label>
+
+      <input class="AmountStyle displayinline marginleft" type="radio" id="amtCrores"
+        value="Amount in Crores" name="Amount" [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+      <label class="color marginlefttwo" for="amtCrores">Amount in Crores </label>
+    </div>
+
+    <div class="row textleft">
+      <div class="col-md-6">
+        <div>
+          <span>Search Criteria : &nbsp;</span>
+          <input type="radio" class="AmountStyle with-gap displayinline" value="Account Number"
+            name="Account" id="test1" [(ngModel)]='radioValue1' />
+          <label class="color marginlefttwo" for="test1"> Account Number</label>
+
+          <input type="radio" class="AmountStyle displayinline marginleft" value="Account Name"
+            name="Account" id="test2" [(ngModel)]='radioValue1' />
+          <label class="color marginlefttwo" for="test2">Account Name</label>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline" class="beneficiaryFields floatleft">
+            <!-- <mat-label>CALA Account Name</mat-label> -->
+            <input matInput type="text" id="txtsearchcriteria" [(ngModel)]='searchValue' />
+          </mat-form-field>
+          <div class="floatleft marginleftone">
+            <button mat-raised-button id="btnsearchcriteria"
+              class="btnStyle" (click)="onSearch(searchValue,radioValue1,dateValue)">Search</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="selecdatedate textalignright">
+          <label class="row floatleft">Select Date (Account Open Date) :</label>
+          <div class="floatleft">
+            <mat-form-field appearance="outline" class="widthtenrem">
+              <mat-label>Date</mat-label>
+              <input matInput [matDatepicker]="picker" class="color" [(ngModel)]='dateValue' readonly>
+              <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="marginleftfour floatright">
+              <button mat-raised-button id="btnsearchcriteria"
+                class="btnStyle marginrighttwo marginlefttwo"
+                (click)="onSubmit(searchValue,radioValue1,dateValue)">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 margintopfifty">
+        <a (click)="onRefreshClick()"> <img src="assets/img/refresh.png" class="refresh"></a>
+        <a (click)="onExcelDownloadClick()"> <img src="assets/img/excel.png" class="excel"></a>
+      </div>
+    </div>
+    <!-- account grid tag -->
+    <div id="tableContainer">
+      <table mat-table [dataSource]="accountParsedArr" class="mat-elevation-z8 ">
+
+        <ng-container matColumnDef="no">
+          <th mat-header-cell class="sr" *matHeaderCellDef> S.No. </th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.no}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="AccountOpenDate">
+          <th mat-header-cell class="sr" *matHeaderCellDef> Account Open Date </th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.ACCT_OPN_DATE}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastOperatinDate">
+          <th mat-header-cell class="sr" *matHeaderCellDef> Last Operation Date </th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.LAST_TRAN_DATE}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="NoOfdayssincelastTransaction">
+          <th mat-header-cell class="sr" *matHeaderCellDef>No. Of Days Since Last Transaction </th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.COUNT_OF_DAYS_SINCE_LAST_TRA}} </td>
+        </ng-container>
+
+        <ng-container class="bg-white" matColumnDef="AccountID">
+          <th mat-header-cell class="sr" *matHeaderCellDef> Account Number </th>
+          <td mat-cell class="right testunderline" *matCellDef="let element">
+            <a (click)="openDialoglimitlewdger(element.AccountNumber)">{{element.AccountNumber}}</a></td>
+          <!-- <td mat-cell class="right" *matCellDef="let element"><button mat-button (click)="openDialog()">{{element.AccountID}}</button></td> -->
+        </ng-container>
+
+        <ng-container matColumnDef="AccountName">
+          <th mat-header-cell class="sr" *matHeaderCellDef> Account Name </th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.ACCT_NAME}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="TotalLimit">
+          <th mat-header-cell class="numberPadding" *matHeaderCellDef> Total Limit </th>
+          <td mat-cell class="numberPadding testunderline"
+            *matCellDef="let element">
+            <a class="itc-lb-more-info-link"
+              (click)="openDailogtotallimit(element.AccountNumber)">{{element.TotalLimitGrantAmt | customCurrencyPipe }}</a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="UsedLimit">
+          <th mat-header-cell class="numberPadding" *matHeaderCellDef> Used Limit </th>
+          <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.UtilisedLimit | customCurrencyPipe }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NoofdaysinceAccountopned">
+          <th mat-header-cell class="sr" *matHeaderCellDef> No. Of Days Since Account Opened </th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.NO_OF_DAYS_Since_acct_ope}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FundsUsed">
+          <th mat-header-cell class="sr" *matHeaderCellDef> Fund Used (%) </th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.LimitUtilizationPercentage | customCurrencyPipe}} %</td>
+        </ng-container>
+
+        <ng-container matColumnDef="BalanceLimit">
+            <th mat-header-cell class="numberPadding" *matHeaderCellDef> Balance Limit</th>
+            <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.BalanceLimit| customCurrencyPipe}} </td>
+          </ng-container>
+
+        <ng-container matColumnDef="AccountBalance">
+          <th mat-header-cell class="numberPadding paddingright" *matHeaderCellDef> Account Balance</th>
+          <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.AcctBal | customCurrencyPipe}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[10,20,30,50,100]"
+        (page)="pageEvent($event,searchValue,radioValue1,dateValue)" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>

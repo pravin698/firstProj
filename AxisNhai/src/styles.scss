@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+//@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+mat-card {
+  max-width: 85%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.mat-toolbar {
+  justify-content: space-between;
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+@import '~@angular/material/theming';
+
+// Define a custom typography config that overrides the font-family
+$custom-typography: mat-typography-config(
+  $font-family: 'Lato',
+);
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+html {
+  font-family: 'Lato',
+}
+
+body {
+  margin: 0px;
+  font-family: 'Lato'
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #97144d !important;
+  margin-left: 30px;
+  }
+
+  .mat-slide-toggle-thumb {
+    background-color:#F2E7EA;
+  }
+
+  .mat-slide-toggle-bar {
+  width: 60px !important;
+  height: 17px !important;
+  background-color: #97144d;
+  }
+
+  .sr{
+    text-align: left! important;
+    padding-right: 0px !important;
+    padding-left: 10px !important;
+
+  }
+
+  .right{
+    text-align: left !important;
+    padding-right: 0px !important;
+    padding-left: 10px !important;
+  }
+
+  .numberPadding{
+     text-align: right !important;
+    padding-right: 10px !important;
+    padding-left:  0px !important;
+  }
+
+  .tableContent{
+    background-color: white;
+  }

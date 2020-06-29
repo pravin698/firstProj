@@ -1,0 +1,97 @@
+<div id="body">
+  <div class="hrader">
+    <div>
+      <h5>Exceptions</h5>
+    </div>
+  </div>
+  <div class="radio">
+    <div class="amtInRupeesCrores">
+      <input class="amtRupees" type="radio" id="amtRupees" value="Amount in Rupees" name="AmountStyle"
+        [(ngModel)]='radioValue' (change)="onRadioButtonChange(radioValue)" />
+      <label class="color radiolft" for="amtRupees">Amount in Rupees</label>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input class="amtCrores" type="radio" id="amtCrores" value="Amount in Crores" name="AmountStyle"
+        [(ngModel)]='radioValue' (change)="onRadioButtonChange(radioValue)" />
+      <label class="color radiolft" for="amtCrores">Amount in Crores </label>
+    </div>
+  </div>
+  <br>
+  <div>
+    <div class="row">
+
+      <mat-form-field appearance="outline" class="frmdt">
+        <mat-label>From Date</mat-label>
+        <input matInput [matDatepicker]="picker" class="color" [(ngModel)]='dateValue1' readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="todt">
+        <mat-label>To Date</mat-label>
+        <input matInput [matDatepicker]="picker1" class="color" [(ngModel)]='dateValue2' readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker1" class="color"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-form-field appearance="outline" class="actNumber">
+        <mat-label>Account Number</mat-label>
+        <input matInput [(ngModel)]='accountnumber' type='number'>
+      </mat-form-field>
+      <button mat-raised-button id="btnlimitasondate" class="exceptionSearch"
+        (click)="onExceptionsSearch(dateValue1,dateValue2)">Search</button>
+    </div><br />
+    <div class="icon">
+      <a (click)="onRefreshClick()"> <img src="assets/img/refresh.png" class=excel></a>
+
+      <a (click)="onExcelDownload()"> <img src="assets/img/excel.png" class=refresh></a>
+    </div><br /><br />
+    <table mat-table [dataSource]="exceptionParsedData" class="mat-elevation-z8 ">
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef> S.NO. </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subsidiaryaccountno">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Account Number</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.SubsidiaryAcctNumber}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="subsidiaryaccountname">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Account Name</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.SubsidiaryAcctName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subsidiaryaccountopendate">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Account Open Date</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.SubsidiaryAcctOpenDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell class="sr" *matHeaderCellDef> Date </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.SubsidiaryTranDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="debitcredit">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Debit/Credit</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.SubsidiaryDebitCredit}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tranparticulars">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Tran Particulars</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.TranParticulars}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef>Amount</th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.TranAmount | customCurrencyPipe}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5,10,15]" showFirstLastButtons></mat-paginator>  -->
+    <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5,10,30,50,100]"
+      (page)="pageEvent($event,dateValue1,dateValue2)" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div>
+  <div class="headerMainDiv">
+    <img class="headerimg" src="assets/img/AXISBANKPathway.png">
+    <button class="userBtn" [mat-menu-trigger-for]="menu">
+      <mat-label>Hi, {{userID}}</mat-label>
+      <mat-icon matPrefix>account_circle</mat-icon>
+      <i class="material-icons">arrow_drop_down</i>
+    </button>
+  </div>
+
+  <mat-menu class="bg-white" #menu="matMenu">
+    
+    <button mat-menu-item (click)="onResetPassword()">
+      <mat-icon>sync</mat-icon>Change Password
+    </button>
+   
+    <button mat-menu-item (click)="onLogoutClick()">
+      <mat-icon>exit_to_app</mat-icon>Logout
+    </button>
+  </mat-menu>
+
+</div>

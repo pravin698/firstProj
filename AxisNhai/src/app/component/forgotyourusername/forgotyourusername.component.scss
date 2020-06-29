@@ -1,0 +1,72 @@
+.heading{
+  margin-top: 20px;
+}
+.heada{
+  cursor: pointer;padding-left: 2rem;
+}
+.headb{
+  color: rgb(151,20,77);
+}
+.forgot{
+  text-align: center; margin-top: 70px ;
+}
+.foruser{
+  color: rgb(151,20,77); font-size: 30px; margin-right:57px;
+}
+.formail{
+  font-size: 15px; color:rgb(88, 87, 87); margin-left: 57px;font-style: Lato ;
+}
+.mat-raised-button{
+    color:#ffffff;
+    background-color:rgb(151,20,77) ;
+    width: 8rem;
+    height: 37px;
+    margin-right:235px; 
+   
+}
+.mat-icon{
+  color:rgb(151,20,77)  ;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 25%;
+  }
+  
+  .example-full-width {
+    width: 25%;
+    margin-left: -30px;
+  }
+.usermailidtxt{
+    font-family: Lato !important;
+    margin-left: 10px;
+  }
+  ::ng-deep .mat-form-field-flex{
+    align-items:center !important;
+  }
+  
+  ::ng-deep .mat-form-field-infix{
+    margin-left: 2px;
+    padding-top: 0.1em !important;
+    padding-bottom: 14px !important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+    color: #97144d !important;
+    opacity: 1;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: #97144d !important;
+    opacity: 1;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+    color:#97144d !important;
+  }
+  
+  ::ng-deep .mat-form-field-label {
+    color:#97144d !important;
+    font-family: Lato !important;
+  }
+  

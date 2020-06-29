@@ -1,0 +1,94 @@
+#body{
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 30px;
+  }
+  .sreachcriteria{
+      display: inline;
+      margin-left: 1rem;
+  }
+  
+  .AmountStyle{
+      width:18px;height:18px;
+    }
+    h5 {
+      color: black;
+      font-family: 'Lato';
+  }
+  .color{
+    color: black;
+    font-family: 'Lato';
+  }
+  table {
+      width: 100%;
+      height: 5%;
+      background-color: white;
+  }
+  
+  .mat-cell{
+    color: black;
+    font-family: 'Lato';
+     }
+   
+     .mat-header-cell{
+       color:white;
+       font-family: 'Lato';
+     }
+     .right{
+        text-align: right;
+    }  
+     .mat-header-row {
+         background-color:rgb(151,20,77);
+     }
+   
+     .row{
+         color:black;
+     }
+     hr{
+       border-bottom: 1px solid rgb(151,20,77);
+       height: 1px;
+       width: 80%;
+       background-color:rgb(151,20,77) ;
+     }
+   
+     tr,td,th{
+         border:1px solid black ;
+     }
+     .sr{
+      text-align: center;
+    }
+  
+    :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {   
+      stroke: rgb(151,20,77)
+  }
+
+  .backgroundWhite{
+    background-color: white;
+  }
+
+  .marginleftHeader{
+    margin-left: 25px;
+  }
+
+  .axisColor{
+    color:rgb(151,20,77);
+  }
+
+  .dialogContentDiv{
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 30px;
+  }
+
+  .totalLimitSpinner{
+    display: flex; 
+    justify-content: center; 
+    align-items: center
+  }
+
+  .btnClose{
+    width : 10em; 
+    background-color: #97144d;
+    margin-left: 22px; 
+    color:white
+  }

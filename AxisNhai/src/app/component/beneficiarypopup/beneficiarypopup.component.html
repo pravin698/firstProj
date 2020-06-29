@@ -1,0 +1,97 @@
+<div>
+  <div>
+    <h5 class="screenTitle">Beneficiary Details</h5>
+  </div>
+</div>
+
+<div class="form-container bgclr">
+  <form [formGroup]="BenificiarypopupFormGroup" (ngSubmit)="onSave($event)">
+  <div class="head">
+    <mat-form-field appearance="outline" class="beneficiaryFields">
+      <mat-label>Beneficiary Name</mat-label>
+      <input  formControlName="BenificiaryNamecontorl"  matInput required>
+       <mat-error *ngIf="BenificiarypopupFormGroup.get('BenificiaryNamecontorl').hasError('required')">
+            * Beneficiary Name is required
+              </mat-error>
+              <mat-error 
+                *ngIf="!BenificiarypopupFormGroup.get('BenificiaryNamecontorl').hasError('required') &&BenificiarypopupFormGroup.get('BenificiaryNamecontorl').hasError('pattern')">
+                * Invalid Beneficiary Name
+              </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="beneficiaryFields">
+      <mat-label>Account Number</mat-label>
+      <input type="number"  formControlName="ActNumbercontorl" pattern="\d+" matInput  required>
+      <mat-error *ngIf="BenificiarypopupFormGroup.get('ActNumbercontorl').hasError('required')">
+       * Account Number is required
+         </mat-error>
+         <mat-error 
+           *ngIf="!BenificiarypopupFormGroup.get('ActNumbercontorl').hasError('required') &&BenificiarypopupFormGroup.get('ActNumbercontorl').hasError('pattern')">
+           * Invalid Account Number
+         </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="wd">
+    <mat-form-field appearance="outline" class="beneficiaryFields">
+      <mat-label>IFSC Code</mat-label>
+      <input formControlName="Ifsccodecontorl" matInput  required>
+      <mat-error *ngIf="BenificiarypopupFormGroup.get('Ifsccodecontorl').hasError('required')">
+       * IFSC Code is required
+         </mat-error>
+         <mat-error 
+           *ngIf="!BenificiarypopupFormGroup.get('Ifsccodecontorl').hasError('required') &&BenificiarypopupFormGroup.get('Ifsccodecontorl').hasError('pattern')">
+           * Invalid IFSC Code
+         </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="beneficiaryFields">
+      <mat-label>Amount</mat-label>
+      <input formControlName="amountcontorl" type="number" pattern="\d+" matInput  required>
+      <mat-error *ngIf="BenificiarypopupFormGroup.get('amountcontorl').hasError('required')">
+       * Amount is required
+         </mat-error>
+         <mat-error 
+           *ngIf="!BenificiarypopupFormGroup.get('amountcontorl').hasError('required') &&BenificiarypopupFormGroup.get('amountcontorl').hasError('pattern')">
+           * Invalid Amount
+         </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="wd">
+    <mat-form-field appearance="outline" class="beneficiaryFields">
+      <mat-label>Debit Account</mat-label>
+      <input formControlName="debitactcontorl" type="number" pattern="\d+" matInput  required>
+      <mat-error *ngIf="BenificiarypopupFormGroup.get('debitactcontorl').hasError('required')">
+       * Debit Account is required
+         </mat-error>
+         <mat-error 
+           *ngIf="!BenificiarypopupFormGroup.get('debitactcontorl').hasError('required') &&BenificiarypopupFormGroup.get('debitactcontorl').hasError('pattern')">
+           * Invalid Debit Account
+         </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="beneficiaryFields">
+      <mat-label>CALA Account Name</mat-label>
+      <input  formControlName="calaactcontorl" matInput required>
+      <mat-error *ngIf="BenificiarypopupFormGroup.get('calaactcontorl').hasError('required')">
+        * CALA Account Nameis required
+         </mat-error>
+         <mat-error 
+           *ngIf="!BenificiarypopupFormGroup.get('calaactcontorl').hasError('required') &&BenificiarypopupFormGroup.get('calaactcontorl').hasError('pattern')">
+            * Invalid CALA Account Name 
+         </mat-error>
+    </mat-form-field>
+  </div>
+</form>
+  <div>
+      <input type="file" id="myFile"  [(ngModel)]='file' name="file" accept=".xlsx, .xls, .csv"  class="inputButton" (change)="readFile($event)">
+      <button mat-raised-button class="uploadButtonColor" type="button" (click)="uploadFile()" ><i class="fas fa-upload"></i> Upload</button>
+      <mat-icon matSuffix matTooltip="Sample Template" class="icon" (click)="onTemplateDownload($event)">cloud_download</mat-icon>
+  </div>
+  <br />
+  <div>
+    <button mat-dialog-close class="dialogClose">Close</button>
+    <button class="dialogAcction" type="submit" (click)="onSave($event)">Save</button>
+  </div>
+</div>

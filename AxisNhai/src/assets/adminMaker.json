@@ -1,0 +1,9 @@
+{
+    "NavicTree": [
+        {
+            "linkTitle": "User Management",
+            "link": "/main/usermanagement",
+            "imgUrl": "assets/img/role.png"
+        }
+    ]
+}

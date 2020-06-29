@@ -1,0 +1,94 @@
+{
+    "NavicTree": [
+        {
+            "linkTitle": "Home",
+            "link": "/main/home",
+            "imgUrl": "assets/img/home.png"
+        },
+        {
+            "linkTitle": "Home Back Dated",
+            "link": "/main/homebackdated",
+            "imgUrl": "assets/img/home.png"
+        },
+        {
+            "linkTitle": "Financial Summary",
+            "link": "/main/financialsummary",
+            "imgUrl": "assets/img/india.png"
+        },
+        {
+            "linkTitle": "Financial Summary Back Dated",
+            "link": "/main/backdatedfinancialsummary",
+            "imgUrl": "assets/img/india.png"
+        },
+        {
+            "linkTitle": "Zone",
+            "link": "/main/zone",
+            "imgUrl": "assets/img/zone.png"
+        },
+        {
+            "linkTitle": "State",
+            "link": "/main/state",
+            "imgUrl": "assets/img/state.png"
+        },
+        {
+            "linkTitle": "Regional Office",
+            "link": "/main/regionaloffice",
+            "imgUrl": "assets/img/regionaloffice.png"
+        },
+        {
+            "linkTitle": "Project Directors",
+            "link": "/main/projectdirectors",
+            "imgUrl": "assets/img/projectdirectors.png"
+        },
+        {
+            "linkTitle": "Accounts",
+            "link": "/main/account",
+            "imgUrl": "assets/img/account.png"
+        },
+        {
+            "linkTitle": "Transactions",
+            "link": "/main/transaction",
+            "imgUrl": "assets/img/transaction.png"
+        },
+        {
+            "linkTitle": "Date wise Limit",
+            "link": "/main/datewiselimit",
+            "imgUrl": "assets/img/datewiselimit.png"
+        },
+        {
+            "linkTitle": "Ageing",
+            "link": "/main/aeging",
+            "imgUrl": "assets/img/aeging.png"
+        },
+        {
+            "linkTitle": "Award Number",
+            "link": "/main/awardnumber",
+            "imgUrl": "assets/img/india.png"
+        },
+        {
+            "linkTitle": "Exceptions",
+            "link": "/main/exceptions",
+            "imgUrl": "assets/img/exception.png"
+        },
+        {
+            "linkTitle": "CALA Reconciliation Statement",
+            "link": "/main/calareconcilationstatement",
+            "imgUrl": "assets/img/cala.png"
+        },
+        {
+            "linkTitle": "Beneficiary Master",
+            "link": "/main/beneficiarymaster",
+            "imgUrl": "assets/img/role.png"
+        },
+        {
+            "linkTitle": "User Management",
+            "link": "/main/usermanagement",
+            "imgUrl": "assets/img/role.png"
+        },
+        {
+            "linkTitle":"User Change Workflow",
+            "link":"/main/userchangeworkflow",
+            "imgUrl":"assets/img/role.png"
+        }
+    ]
+}

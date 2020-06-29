@@ -1,0 +1,64 @@
+<div class="limitlewdgerMainDiv">
+ <!-- limit lewdger label tag   -->
+<div class="col-sm-8" class="marginleft">
+    <h4 class="axisColor" mat-dialog-title>Limit Ledger</h4>
+</div>
+<br/>
+<div class="links">
+  <a class="linkConnection" (click)="onExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+</div>
+<!-- limlit lewdger grid tag -->
+<mat-dialog-content >
+<div class="dialogContent">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr"  *matHeaderCellDef> S.No. </th>
+        <td mat-cell class="right"  *matCellDef="let element; let i = index;"> {{i + 1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateoflimit">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Date Of Limit</th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.SYSDATE}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="limitgrant">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef>Limit Grant </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.LIMIT_GRANT_AMT| customCurrencyPipe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="limitresanction">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limit Re-Sanction </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element">{{element.LIMIT_RESANCTION_AMT| customCurrencyPipe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="limitremoval">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limit Removal </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.LIMIT_EXPIRED| customCurrencyPipe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="limitutilized">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limit Utilized  </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.UTILIZED_AMT| customCurrencyPipe}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="balancelimit">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Balance Limit</th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.BALANCE_LIMIT| customCurrencyPipe}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</mat-dialog-content>
+<div *ngIf="isLoading" class="loader">
+    <mat-spinner>
+      color="accent" 
+      mode="indeterminate">
+    </mat-spinner>
+  </div>
+
+<button mat-raised-button  mat-dialog-close class="close">Close</button>
+
+</div>

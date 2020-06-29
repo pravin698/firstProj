@@ -1,0 +1,93 @@
+<div id="body">
+  <div class="hrader">
+    <h5 class="screenTitle">Award Number</h5>
+  </div>
+
+  <div class="amtInRupeesCrores">
+    <input class="amtRupees" type="radio" id="amtRupees" value="Amount in Rupees" name="Amount"
+      [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+    <label class="color radiolft" for="amtRupees">Amount in Rupees</label>
+
+    <input class="amtCrores" type="radio" id="amtCrores" value="Amount in Crores" name="Amount"
+      [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+    <label class="color radiolft" for="amtCrores">Amount in Crores </label>
+  </div>
+
+  <div>
+    <div class="row date">
+      <div>
+        <mat-form-field appearance="outline" class="frdate">
+          <mat-label>From Date</mat-label>
+          <input matInput [matDatepicker]="picker" class="color" [(ngModel)]='fromdate' readonly>
+          <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="todate">
+          <mat-label>To Date</mat-label>
+          <input matInput [matDatepicker]="picker1" class="color" [(ngModel)]='todate' readonly>
+          <mat-datepicker-toggle matSuffix [for]="picker1" class="color"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="actNumber">
+          <mat-label>Account Number</mat-label>
+          <input matInput [(ngModel)]='accountnumber'>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="awardNumber">
+          <mat-label>Award Number</mat-label>
+          <input matInput [(ngModel)]='awardnumber'>
+        </mat-form-field>
+        <button mat-raised-button id="btnlimitasondate" class="searchBtn" (click)="onSearchclick()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="icon">
+    <a mat-list-item (click)="onRefreshClick()"> <img src="assets/img/refresh.png" class=excel></a>
+
+    <a mat-list-item (click)="onExcelDownloadClick()"> <img src="assets/img/excel.png" class=refresh></a>
+    <br /><br />
+  </div>
+
+  <br />
+  <div class="dataTable">
+    <table mat-table [dataSource]="dataSourcesawardnumber" class="mat-elevation-z8 ">
+
+      <ng-container matColumnDef="ACnumber">
+        <th mat-header-cell class="sr" *matHeaderCellDef> A/C Number </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.AccountNum}} </td>
+      </ng-container>
+
+      <ng-container class="bg-white" matColumnDef="AwardNumber">
+        <th mat-header-cell class="sr" *matHeaderCellDef> Award Number</th>
+        <td class="sr tbl" mat-cell *matCellDef="let element">
+          <a class="hyperLink"
+            (click)="openDialogAwardNumber(element.AWARDNum,element.AccountNum)">{{element.AWARDNum}}</a></td>
+      </ng-container>
+
+      <ng-container matColumnDef="AwardNumberDate">
+        <th mat-header-cell class="sr" *matHeaderCellDef> Award Number Date </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.AWARDNumDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="UniqueNumber">
+        <th mat-header-cell class="sr" *matHeaderCellDef> Unique Number </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.uniqueNum}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="LimitDate">
+        <th mat-header-cell class="sr" *matHeaderCellDef> Limit Date </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.dateOfTOD}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="LimitNumber">
+        <th mat-header-cell class="sr" *matHeaderCellDef> Limit Number </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.TODAmt}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[10,30,50,100]"
+      (page)="pageEvent($event)" showFirstLastButtons>
+    </mat-paginator>
+  </div>

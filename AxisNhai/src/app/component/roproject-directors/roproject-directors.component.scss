@@ -1,0 +1,138 @@
+.bgcolor{
+  background-color: white;
+}
+.heading{
+  margin-left: 20px;
+}
+.headingclr{
+  color:rgb(151,20,77)
+}
+.tbl{
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 30px;
+}
+.btn{
+  color:white;
+  width : 10em; 
+  background-color: rgb(151,20,77);
+  margin-left: 22px;
+}
+hr{
+    border-bottom: 1px solid #8f1741;
+    height: 1px;
+    width: 80%;
+    background-color:#97144d ;
+  }
+  h5 {
+    color: black;
+    font-family: 'Lato';
+}
+.color{
+  color: black;
+  font-family: 'Lato';
+}
+.AmountStyle{
+  width:18px;height:18px;
+}
+#body{
+    overflow-x:hidden;
+    margin-bottom: 359px;
+}
+table {
+    width: 100%;
+    height: 5%;
+   background-color: white;
+  }
+  .mat-cell{
+    color: black;
+    font-family: 'Lato';
+  }
+
+  .mat-header-cell{
+    color:white;
+    font-family: 'Lato';
+  }
+  .right{
+     text-align: right;
+ }  
+  .mat-header-row {
+      background-color:#97144d;
+  }
+
+  .row{
+      color:black;
+  }
+  hr{
+    border-bottom: 1px solid #8f1741;
+    height: 1px;
+    width: 80%;
+    background-color:#97144d ;
+  }
+
+  tr,td,th{
+      //border:1px solid #ced4da;
+      border:1px solid black ;
+      width: 1000px;
+  }
+
+  .sr{
+    width:100px;
+    text-align: center;
+  }
+
+  .a{
+    padding-left: 20px;
+  }
+  .excel{
+    width: 22px;
+    height: 22px;
+    float: right;
+    margin-right: 25px;
+  }
+
+  .refresh{
+    width: 22px;
+    height: 22px;
+    float: right;
+    margin-right: 25px;
+
+  }
+  .mat-paginator{
+    background-color:white;
+    color:#97144d;
+  }
+  ::ng-deep .mat-select-value {
+    color: #97144d;
+      font-weight: bold;
+      font-size: 15px;
+  }
+  ::ng-deep .mat-select-arrow {
+      color: #97144d;
+  }
+
+  ::ng-deep .mat-paginator-icon{
+    fill:#97144d !important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: transparent;
+  }
+
+  ::ng-deep .mat-paginator-range-label{
+    color:#97144d;
+  }
+
+  ::ng-deep .mat-paginator-page-size-label{
+    color:#97144d;
+  }
+
+  ::ng-deep .mat-form-field-flex{
+    align-items:center !important;
+  }
+
+  ::ng-deep .mat-form-field-infix{
+    margin-left: 2px;
+    padding-top: 0.1em !important;
+    padding-bottom: 14px !important;
+  }

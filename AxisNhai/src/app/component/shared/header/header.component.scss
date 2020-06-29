@@ -1,0 +1,54 @@
+.logo{
+    height: 50px;
+    background-color: #97144d;
+    padding: 0px;;
+}
+
+.mat-icon-button{
+   line-height: 0px;
+   margin-top: 20px;
+}
+.mat-menu-item{
+color: black;
+background-color: #ffffff;
+border: #ebcfda 1px solid;
+border-bottom: 0px;
+}
+.color{
+    color: black;
+}
+
+.axisImgHeader{
+    float: left;
+    width: 20%;
+    height: 60px;
+    background-image: url("/AxisNhai/assets/img/Axisbanklogo.png");
+    background-repeat: no-repeat;
+}
+
+button:focus{
+    outline: none !important;
+}
+
+.userBtn{
+    right: 1px;
+    position: absolute;
+    color: black;
+    top: 25px;
+    border: none;
+    background-color: white;
+    font-size: 14px;
+    font-family: Lato;
+    font-weight: bold;
+}
+
+.headerMainDiv{
+    height:75px;
+    background-color: white !important;
+}
+
+.headerimg{
+   width:100%;
+   height: 100%;
+   position: relative;
+}

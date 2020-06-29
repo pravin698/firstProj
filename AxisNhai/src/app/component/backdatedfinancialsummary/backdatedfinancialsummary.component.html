@@ -1,0 +1,102 @@
+<div id="body">
+  <div #content class="tableContent">
+    <div class="hrader">
+      <h5>Back Dated Financial Summary</h5>
+    </div>
+    <div class="radio-btns radio">
+      <label class="color radiolft"for="rupeesRadio">
+        <input type="radio" class="AmountStyle radiorupes" value="Amount in Rupees" name="AmountStyle"
+          [(ngModel)]='finBackAmtConv' (change)="onItemChange(finBackAmtConv)" id="rupeesRadio" />
+        Amount in Rupees</label>
+
+      <label class="color radiolft" for="croresRadio">
+        <input type="radio" class="AmountStyle radiocror" value="Amount in Crores"
+          checked="checked" name="AmountStyle" [(ngModel)]='finBackAmtConv' id="croresRadio"
+          (change)="onItemChange(finBackAmtConv)" />
+        Amount in Crores </label>
+    </div>
+ 
+  <br />
+  
+  <div class="row date">
+    <mat-form-field appearance="outline" class="datea">
+      <mat-label>As on Date</mat-label>
+      <input matInput [matDatepicker]="picker" class="color" [(ngModel)]='backdatedValue' readonly>
+      <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button id="onSearchbybackdate"
+      class="btnsearch"
+      (click)="onSearchbybackdate(backdatedValue)">Search</button>
+  </div>
+  <div class="icon">
+    <a (click)="onRefreshClick()" class="hyperLink"> <img src="assets/img/refresh.png" class="refresh"></a>
+    <a (click)="onExcelDownload()"  class="hyperLink"> <img src="assets/img/excel.png" class="excel"></a>
+    <a (click)="onPDFDownload()"> <img src="assets/img/pdf.png" class="excel"></a>
+    <br /><br />
+  </div>
+
+  <div class="tbla">
+    <table mat-table [dataSource]="dataSources" class="mat-elevation-z8 tblc">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="10%"> S.No. </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deposit">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="45%"> Deposit </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.deposit}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef width="45%"> Amount </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.amount | customCurrencyPipe}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="tblb">
+    <table mat-table [dataSource]="data" class="mat-elevation-z8 ">
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="10%"> S.No. </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="disbursement">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="45%"> Disbursement </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.disbursement}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef width="45%"> Amount </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.amount | customCurrencyPipe}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayed"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayed;"></tr>
+    </table>
+  </div>
+  <div class="tblb">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="10%"> S.No. </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="summary">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="45%"> Summary </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.summary}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef width="45%"> Amount </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.amount | customCurrencyPipe}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+    </table>
+  </div>
+</div>
+</div>

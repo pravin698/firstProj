@@ -1,0 +1,33 @@
+<div class="heading">
+  <mat-label routerLink='/login' class="heada"><mat-icon>keyboard_return</mat-icon><a class="headb"><b>Back to login</b></a></mat-label>
+</div>
+<div>
+  <div class="forgot">
+    <mat-label class="foruser">Forgot Your Username?</mat-label>
+    <br /><br />
+    <mat-label class="formail">
+      Please enter your Registered E-Mail Address OR Mobile Number</mat-label>
+    <br />
+    <br />
+    <form class="mailtxt-form">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <!-- <mat-label>Enter Details</mat-label> -->
+        <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+          placeholder="E-Mail Address/Mobile Number" required>
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="!emailFormControl.hasError('required') && emailFormControl.hasError('pattern')">
+          Please enter a valid email address / mobile number
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email/Mobile Number is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <br />
+    <div>
+      <button (click)="onSubmmitCLick()" mat-raised-button type="submit">
+        <b>Submit</b>
+      </button>
+    </div>
+  <br />
+</div>

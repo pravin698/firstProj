@@ -1,0 +1,84 @@
+<div id="body">
+    <div class="hrader">
+        <div>
+            <h5>Project Directors</h5>
+        </div>
+        <div class="radio-btns radio">
+            <input type="radio" class="AmountStyle with-gap radiorupes" value="Amount in Rupees"
+              name="Amount" [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" id="test1"/>
+            <label class="color radiolft" for="test1">Amount in Rupees</label>
+        
+            <input type="radio" class="AmountStyle radiocror" value="Amount in Crores"
+              name="Amount" [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" id="test2"/>
+            <label class="color radiolft" for="test2">Amount in Crores </label>
+        </div> 
+    </div>
+
+    <div class="icon">
+        <a  (click)="onRefreshClick()">  <img  src="assets/img/refresh.png" class=excel></a>
+      
+        <a  (click)="onExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+     <br/><br/> </div>
+      <br/>
+    <div>
+        <table mat-table [dataSource]="projecrParsedData" class="mat-elevation-z8 ">
+
+            <ng-container matColumnDef="no">
+                <th mat-header-cell class="sr"  *matHeaderCellDef> S.NO. </th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.REC_CNT}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="projectname">
+                <th mat-header-cell class="sr" *matHeaderCellDef>Project Director Names</th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.ProjectDirectorName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="projectlocation">
+                <th mat-header-cell class="sr" *matHeaderCellDef>Project Director Location</th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.ProjectDirectorLocation}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="regionalname">
+                <th mat-header-cell class="sr" *matHeaderCellDef>Regional Officer Name</th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.RegionalOfficerName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="regionallocation">
+                <th mat-header-cell class="sr" *matHeaderCellDef>Regional Officer Location</th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.RegionalOfficerLocation}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="zonename">
+                <th mat-header-cell class="sr" *matHeaderCellDef>Zone</th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.zone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subsidiaryaccount">
+                <th mat-header-cell class="sr" *matHeaderCellDef>No. of Subsidiary Accounts </th>
+                <td mat-cell class="right" *matCellDef="let element"><a class="itc-lb-more-info-link"
+                (click)="openDialogSubsidiaryAccount(element.ProjectDirectorName)"> {{element.NumOfSubsidiaryAcct}} </a></td>
+            </ng-container>
+
+            <ng-container matColumnDef="totlelimit">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef>Total Limit </th>
+                <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.TotLimit | customCurrencyPipe}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="usedlimit">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef>Used Limit</th>
+                <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.UsedLimit | customCurrencyPipe}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fundused">
+                <th mat-header-cell class="sr tbla" *matHeaderCellDef>Funds Used(%)</th>
+                <td mat-cell class="right tblb" *matCellDef="let element"> {{element.FundUsedPerc | customCurrencyPipe}} %</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[10,20,30,50,100]"  (page)="pageEvent($event)" showFirstLastButtons></mat-paginator> 
+    </div>
+</div>
+

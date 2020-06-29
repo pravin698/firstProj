@@ -1,0 +1,161 @@
+
+  hr{
+    border-bottom: 1px solid rgb(151,20,77) ;
+    height: 1px;
+    width: 80%;
+    background-color:rgb(151,20,77)  ;
+  }
+  h5 {
+    color: black;
+    font-family: 'Lato';
+  }
+  .color{
+  color: black;
+  font-family: 'Lato';
+  }
+  #body{
+    overflow-x:hidden;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 264px;
+    float:left;
+  }
+  table {
+    width: 100%;
+    height: 5%;
+   background-color: white;
+  }
+  .mat-cell{
+   color: black;
+   font-family: 'Lato';
+  }
+  
+  .mat-header-cell{
+    color:white;
+    font-family: 'Lato';
+  }
+  .right{
+     text-align: right;
+  }  
+  .mat-header-row {
+      background-color:rgb(151,20,77) ;
+     
+  }
+  
+  .row{
+      color:black;
+  }
+  hr{
+    border-bottom: 1px solid rgb(151,20,77) ;
+    height: 1px;
+    width: 80%;
+    background-color:rgb(151,20,77)  ;
+  }
+  
+  tr,td,th{
+      //border:1px solid #ced4da;
+      border:1px solid black ;
+      width: 1000px;
+  }
+  
+  .a{
+    padding-left: 20px;
+  }
+  
+  .mat-cell {
+    color: black;
+  }
+  
+  .mat-raised-button{
+    
+    background-color: rgb(151,20,77);
+    font-family: Lato !important;
+    color: white;
+  }
+  
+  ::ng-deep .mat-select-value {
+    color: rgb(151,20,77) ;
+      font-weight: bold;
+      font-size: 15px;
+  }
+  ::ng-deep .mat-select-arrow {
+      color: rgb(151,20,77) ;
+  }
+  
+  ::ng-deep .mat-paginator-icon{
+    fill:rgb(151,20,77) !important;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: transparent;
+  }
+  
+  ::ng-deep .mat-paginator-range-label{
+    color:rgb(151,20,77) ;
+  }
+  
+  ::ng-deep .mat-paginator-page-size-label{
+    color:rgb(151,20,77) ;
+  }
+  
+  ::ng-deep .mat-form-field-flex{
+    align-items:center !important;
+  }
+  
+  ::ng-deep .mat-form-field-infix{
+    margin-left: 2px;
+    padding-top: 0.1em !important;
+    padding-bottom: 14px !important;
+  }
+  
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+    color: rgb(151,20,77) !important;
+     opacity: 1;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: rgb(151,20,77) !important;
+    // opacity: 1;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+    color: rgb(151,20,77) !important;
+  }
+  
+  ::ng-deep .mat-form-field-label {
+    color: rgb(151,20,77) !important;
+    font-family: Lato !important;
+  }
+
+  .mainDiv{
+    padding-top: 25px;
+  }
+
+  .search{
+    cursor: pointer;
+  }
+
+  .floatRight{
+    float: right;
+  }
+
+  .refresh{
+    margin-top: 8px;
+    margin-left:5px;
+    cursor: pointer;
+    float:right;
+    margin-bottom: 10px;
+  }
+
+  .widthComment{
+    width: 33%;
+  }
+
+  .textAlignCenter{
+    text-align: center;
+  }
+
+  .btnReview{
+    margin-right: 10px;
+  }

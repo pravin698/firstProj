@@ -1,0 +1,255 @@
+.mat-raised-button{
+    margin-left: 5px;
+    background-color: rgb(151,20,77);
+    color: #ffffff;
+    
+    top: 2px;
+    
+    
+}
+
+#body{
+  width: 100%;
+}
+
+hr{
+  border-bottom: 1px solid rgb(151,20,77);
+  height: 1px;
+  width: 80%;
+  background-color:rgb(151,20,77) ;
+}
+h5 {
+  color: black;
+  font-family: 'Lato';
+}
+.color{
+color: black;
+font-family: 'Lato';
+}
+.AmountStyle{
+width:18px;height:18px;
+}
+#body{
+  overflow-x:hidden;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 338px;
+  
+ }
+
+ .table-container {
+  min-height: 100px;
+  max-height: 400px;
+  width: 1000px;
+  overflow: auto;
+}
+
+table {
+  width: 1500px;
+}
+.mat-cell{
+ color: black;
+ font-family: 'Lato';
+}
+
+.mat-header-cell{
+  color:white;
+  font-family: 'Lato';
+}
+.right{
+   text-align: right;
+}  
+.mat-header-row {
+    background-color:rgb(151,20,77);
+}
+
+.row{
+    color:black;
+    margin-left: 0px;
+}
+
+
+tr,td,th{
+    //border:1px solid #ced4da;
+    border:1px solid black ;
+    width: 1000px;
+}
+
+.sr{
+  width:100px;
+  text-align: center;
+  
+
+}
+
+
+
+.mat-cell {
+  color: black;
+}
+.excel{
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.refresh{
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.pdf{
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+.mat-paginator{
+  background-color:white;
+  color:rgb(151,20,77);
+}
+::ng-deep .mat-select-value {
+  color: rgb(151,20,77);
+    font-weight: bold;
+    font-size: 15px;
+}
+::ng-deep .mat-select-arrow {
+    color: rgb(151,20,77);
+}
+
+::ng-deep .mat-paginator-icon{
+  fill:rgb(151,20,77) !important;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: transparent;
+}
+
+::ng-deep .mat-paginator-range-label{
+  color:rgb(151,20,77);
+}
+
+::ng-deep .mat-paginator-page-size-label{
+  color:rgb(151,20,77);
+}
+
+::ng-deep .mat-form-field-flex{
+  align-items:center !important;
+}
+
+::ng-deep .mat-form-field-infix{
+  margin-left: 2px;
+  padding-top: 0.1em !important;
+  padding-bottom: 14px !important;
+}
+
+.mat-raised-button{
+  margin-left: 5px;
+  background-color: rgb(151,20,77) ;
+   padding:0px 30px;
+  margin-top: 4px;
+  height: 42px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+  color: #97144d !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: #97144d !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  color:#97144d !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color:#97144d !important;
+  font-family: Lato !important;
+}
+
+.actNumber{
+  font-family: Lato !important;
+  margin-left: 10px;
+}
+
+.transactionTitle{
+  margin-left: 25px; 
+  padding-top: 25px;
+}
+
+.currecyRadio{
+  margin-left: 67%;
+}
+
+.displayinline{
+  display: inline;
+}
+
+.amtCrores{
+  margin-left: 15px;
+}
+
+.amtCroesLabel{
+  margin-left: 2px;
+}
+
+.searchMargin{
+  margin-left: 30px;
+}
+
+.floarleft{
+  float: left;
+}
+
+.margingDate{
+  margin-left: 25px;
+}
+
+.dateLabelMargin{
+  margin-right: 5px;
+}
+
+.formFieldWidth{
+  width: 10rem;
+}
+
+.tansactionDate{
+  float: left; 
+  width:100%;
+  margin-left: 30px;
+}
+
+.transactionDateInput{
+  display: inline;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+.inputFormFieldTrans{
+  width: 13rem;
+  margin-left: 10px;
+}
+
+.searchbtn{
+  background-color: #97144d; 
+  bottom: 5px;
+  cursor: pointer;
+}
+
+.fileDonwloadSec{
+  width: 100%; 
+  float:right;
+}
+
+.pdfState{
+  visibility: hidden;
+}

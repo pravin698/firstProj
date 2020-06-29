@@ -1,0 +1,25 @@
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #97144d;
+  color: #ffff;
+  padding-top: 17px;
+  text-align: center;
+  font-size: 13px;
+  height: 45px;
+  
+}
+
+// ::ng-deep .mat-toolbar-row,.mat-toolbar-single-row {
+//   height: 25px !important;
+// }
+
+::ng-deep .mat-toolbar.mat-warn {
+    background: #97144d;
+    color: #fff;
+}
+
+.footerMargin{
+  margin-left: 38rem;
+}
