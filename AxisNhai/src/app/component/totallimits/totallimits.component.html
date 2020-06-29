@@ -1,0 +1,46 @@
+<div class="backgroundWhite">
+  <div class="col-sm-8" class="marginleftHeader">
+    <h4 class="axisColor" mat-dialog-title>Date Wise Limits</h4>
+  </div>
+
+  <br />
+
+  <mat-dialog-content>
+    <div class="dialogContentDiv">
+      <table mat-table [dataSource]="dataSourcetotallimit" class="mat-elevation-z8 ">
+
+        <ng-container matColumnDef="no" width="10%">
+          <th mat-header-cell class="sr"  *matHeaderCellDef width="10%">S.No.</th>
+          <td mat-cell class="right"  *matCellDef="let element; let i = index;"> {{i + 1}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="dateoflimit">
+          <th mat-header-cell class="sr" *matHeaderCellDef width="15%">Date of Limit</th>
+          <td mat-cell class="right" *matCellDef="let element"> {{element.SYSDATE}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="limitgrant">
+          <th mat-header-cell class="numberPadding" *matHeaderCellDef width="25%">Limit Amount </th>
+          <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.LIMIT_GRANT_AMT| customCurrencyPipe}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="expiredlimit">
+          <th mat-header-cell class="numberPadding" *matHeaderCellDef width="25%"> Expired limit</th>
+          <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.LIMIT_EXPIRED| customCurrencyPipe}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnstotallimit"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnstotallimit;"></tr>
+      </table>
+    </div>
+  </mat-dialog-content>
+  <div *ngIf="isLoading" class="totalLimitSpinner">
+    <mat-spinner>
+      color="accent" 
+      mode="indeterminate">
+    </mat-spinner>
+  </div>
+  <br />
+  <button mat-raised-button mat-dialog-close
+    class="btnClose">Close</button>
+</div>

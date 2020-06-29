@@ -1,0 +1,120 @@
+html,
+body {
+  height: 100%;
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.logo{
+    size: 30px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.container-scroller {
+    overflow: hidden;
+    
+}
+
+
+.mat-raised-button{
+    color:#ffffff;
+    background-color:rgb(151,20,77) ;
+    border-radius: 6px;
+    height: 30px;
+  
+}
+btn btn-block{
+color: rgb(151,20,77) ;
+ background-color:#ffffff ; 
+ border-radius: 10px;
+}
+
+.material-icons{
+    color:rgb(151,20,77) ;
+}
+
+.head{
+    margin-left: 1px;
+}
+
+.axisImgHeader{
+    float: left;
+    width: 20%;
+    height: 60px;
+    background-image: url("/AxisNhai/assets/img/Axisbanklogo.png");
+    background-repeat: no-repeat;
+}
+.toolbarRow {
+    text-align: center;
+    background-color: #97144d;
+}
+.form-signin {
+  width: 100%;
+  max-width: 360px;
+  padding: 15px;
+  margin: auto;
+}
+
+.labelClass{
+    float: left;
+}
+
+.full-width{
+    width: 100%;
+    text-align: left;
+}
+
+.captchaButton{
+    width: 30%;
+    text-align: center;
+}
+
+.margins{
+    margin-bottom: 0.5rem !important;
+}
+
+.axiscolor{
+    border-color: rgb(151,20,77);
+}
+
+.rightMargin{
+    text-align: right;margin-bottom: 0.5rem !important;
+}
+
+.hyperlink{
+    cursor: pointer;
+    text-decoration:underline;
+    color:rgb(151,20,77)
+}
+
+.captcha{
+    width: 80%;
+    user-select:none;
+    background-image: url('/AxisNhai/assets/img/captcha.jpeg');
+    background-repeat: no-repeat;
+}
+
+.genCapchabtn{
+    width: 20%;
+}
+
+.captchaImg{
+    margin-left:5px;
+    cursor: pointer;
+}
+
+.notes{
+    font-size: 12px;
+    margin-bottom: 0.1rem !important;
+}
+
+.logSubmit{
+    margin-left: 100px;
+}

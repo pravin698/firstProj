@@ -1,0 +1,24 @@
+<mat-toolbar color="warn" class="axisColor">
+  <mat-toolbar-row class="toolbarRow">
+    <button class="menuBtn btnColor" type="button" aria-label="Toggle sidenav" mat-icon-button
+      (click)="drawer.toggle()" color="primary">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <app-header class="widthfull"></app-header>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #drawer mode="side" opened role="navigation">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of navicData" [routerLink]="item.link" >
+        <img [src]="item.imgUrl" class=icons><a>{{item.linkTitle}}</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+   <app-footer></app-footer>

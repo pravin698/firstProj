@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.finacle.com/fixml executeFinacleScript.xsd">
+    <Header>
+        <ResponseHeader>
+            <RequestMessageKey>
+                <RequestUUID>SS20_ss02_sd5858997</RequestUUID>
+                <ServiceRequestId>executeFinacleScript</ServiceRequestId>
+                <ServiceRequestVersion>10.2</ServiceRequestVersion>
+                <ChannelId>COR</ChannelId>
+            </RequestMessageKey>
+            <ResponseMessageInfo>
+                <BankId>01</BankId>
+                <TimeZone/>
+                <MessageDateTime>2020-04-03T13:31:47.649</MessageDateTime>
+            </ResponseMessageInfo>
+            <UBUSTransaction>
+                <Id/>
+                <Status/>
+            </UBUSTransaction>
+            <HostTransaction>
+                <Id/>
+                <Status>SUCCESS</Status>
+            </HostTransaction>
+            <HostParentTransaction>
+                <Id/>
+                <Status/>
+            </HostParentTransaction>
+            <CustomInfo/>
+        </ResponseHeader>
+    </Header>
+    <Body>
+        <executeFinacleScriptResponse>
+            <ExecuteFinacleScriptOutputVO/>
+            <executeFinacleScript_CustomData>
+                <Records>
+                    <State>MAHARASHTRA</State>
+                </Records>
+                <sucFaiFlag>S</sucFaiFlag>
+                <message>SUCCESS</message>
+            </executeFinacleScript_CustomData>
+        </executeFinacleScriptResponse>
+    </Body>
+</FIXML>

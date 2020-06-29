@@ -1,0 +1,157 @@
+<main class="page-content">
+  <div class="container-fluid" id="body">
+    <h1 mat-dialog-title>{{title}}</h1>
+    <div id="body">
+      <form [formGroup]="userAccountFormGroup" (ngSubmit)="submit()">
+        <div id="bkcolor">
+          <div class="userActTitleCss">
+            <h5>User Account</h5>
+          </div>
+          <br />
+          <div class="form-container">
+            <div class="row formContainerCss">
+              <div class="col-sm-6">
+                <h6>User Type</h6>
+                <mat-form-field appearance="outline" class="beneficiaryFields">
+                  <mat-label>--Select--</mat-label>
+                  <mat-select required formControlName="userType" name="userType" required autocomplete="off"
+                    (selectionChange)="onUserTypeChange($event.value)">
+                    <mat-option *ngFor="let type of usertypes" [value]="type.value">
+                      {{type.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <h6>User Level</h6>
+                <mat-form-field appearance="outline" class="beneficiaryFields">
+                  <mat-label>--Select--</mat-label>
+                  <mat-select formControlName="userLevel" name="userLevel" required autocomplete="off"
+                    (selectionChange)="onUserLevelChange($event.value)">
+                    <mat-option *ngFor="let level of userlevels" [value]="level.value">
+                      {{level.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row formContainerCss">
+              <div class="col-sm-6">
+                <h6>Zone</h6>
+                <mat-form-field appearance="outline" class="beneficiaryFields">
+                  <mat-label>--Select--</mat-label>
+                  <mat-select formControlName="zone" name="zone" required autocomplete="off"
+                    (selectionChange)="onZoneChange($event.value)">
+                    <mat-option *ngFor="let zone of zoneList" [value]="zone">{{zone}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <h6>State</h6>
+                <mat-form-field appearance="outline" class="beneficiaryFields">
+                  <mat-label>--Select--</mat-label>
+                  <mat-select formControlName="state" name="state" required autocomplete="off"
+                    (selectionChange)="onStateChange($event.value)">
+                    <mat-option *ngFor="let state of stateList" [value]="state">
+                      {{state}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row formContainerCss">
+              <div class="col-sm-6">
+                <h6>Regional Office</h6>
+                <mat-form-field appearance="outline" class="beneficiaryFields">
+                  <mat-label>--Select--</mat-label>
+                  <mat-select formControlName="regions" name="regions" required autocomplete="off"
+                    (selectionChange)="onRegionalOfficeChange($event.value)">
+                    <mat-option *ngFor="let region of regionList" [value]="region">{{region}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <h6>Project Director</h6>
+                <mat-form-field appearance="outline" class="beneficiaryFields">
+                  <mat-label>--Select--</mat-label>
+                  <mat-select formControlName="pds" name="pds" required autocomplete="off">
+                    <mat-option *ngFor="let pd of pdList" [value]="pd">{{pd}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+            </div>
+            <div class="formContainerCss">
+              <h6>CALA</h6>
+              <mat-form-field appearance="outline" class="beneficiaryFields">
+                <mat-label>CALA Account Number</mat-label>
+                <input type="number" formControlName="calas" matInput required (blur)="onCALABlur($event.target.value)">
+                <!-- <mat-select formControlName="calas" name="calas" required>
+                                    <mat-option *ngFor="let cala of calaList" [value]="cala">{{cala}}</mat-option>
+                                </mat-select> -->
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="row columnLeft">
+          <div class="col-sm-5">
+            <mat-form-field appearance="outline" class="beneficiaryFields">
+              <mat-label>First Name</mat-label>
+              <input formControlName="firstname" matInput required>
+              <mat-error *ngIf="userAccountFormGroup.get('firstname').hasError('required')">
+                First Name is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6 columnRight">
+            <mat-form-field appearance="outline" class="beneficiaryFields">
+              <mat-label>Last Name</mat-label>
+              <input formControlName="lastname" matInput required>
+              <mat-error *ngIf="userAccountFormGroup.get('lastname').hasError('required')">
+                Last Name is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row columnLeftTwo">
+          <div class="col-sm-5">
+            <mat-form-field appearance="outline" class="beneficiaryFields">
+              <mat-label>Mobile</mat-label>
+              <input formControlName="mobile" maxlength="10" (keypress)="onlyNumberKey($event)" matInput required>
+              <mat-error *ngIf="userAccountFormGroup.get('mobile').hasError('required')">
+                Mobile number is required
+              </mat-error>
+              <mat-error
+                *ngIf="!userAccountFormGroup.get('mobile').hasError('required') &&userAccountFormGroup.get('mobile').hasError('pattern')">
+                Please enter valid Mobile number
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6 columnRight">
+            <mat-form-field appearance="outline" class="beneficiaryFields">
+              <mat-label>E-Mail</mat-label>
+              <input formControlName="email" matInput required>
+              <mat-error *ngIf="userAccountFormGroup.get('email').hasError('required')">
+                E-Mail is required
+              </mat-error>
+              <mat-error
+                *ngIf="!userAccountFormGroup.get('email').hasError('required') &&userAccountFormGroup.get('email').hasError('pattern')">
+                Please enter valid E-Mail
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- <button mat-raised-button (click)="btnCancel()" type="cancel">Cancel</button> -->
+          <button mat-raised-button mat-dialog-close type="close">Close</button>&nbsp;&nbsp;
+          <button mat-raised-button (click)="btnReset()" type="reset">Reset</button>&nbsp;&nbsp;
+          <button mat-raised-button (click)="submit('submitClick')">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

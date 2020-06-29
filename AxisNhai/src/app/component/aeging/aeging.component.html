@@ -1,0 +1,86 @@
+<div id="body">
+    <div>
+        <div class="col-sm-8 header">
+            <h5>Ageing</h5>
+        </div>
+        <div class="radio-btns radio">
+
+            <label class="color radiobtn" for="amtRupees"><input class="amtRupees" type="radio"
+                    id="amtRupees" value="Amount in Rupees" name="Amount" [(ngModel)]='ageingCurConv'
+                    (change)="onItemChange(ageingCurConv)" />Amount in Rupees</label>
+
+            <label class="color radiobtn" for="amtCrores"><input class="amtCrores" type="radio"
+                    id="amtCrores" value="Amount in Crores" name="Amount" [(ngModel)]='ageingCurConv'
+                    (change)="onItemChange(ageingCurConv)" />Amount in Crores </label>
+        </div>
+    </div>
+
+    <div class="row date">
+        <mat-form-field appearance="outline" class="datewth">
+            <mat-label>As on Date</mat-label>
+            <input matInput [matDatepicker]="picker" class="color" [(ngModel)]='ageFromDate' readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        &nbsp;&nbsp;
+        <button mat-raised-button id="btnlimitasondate"
+            class="datebtn"
+            (click)="onSubmit(ageFromDate)">Dashboard
+        </button>
+    </div>
+    <div class="icon">
+        <a  (click)="onRefreshClick()">  <img  src="assets/img/refresh.png" class=excel></a>
+        <a  (click)="onExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+    </div>
+    <div class="tbldata">
+        <table mat-table [dataSource]="aegingParsedData" class="mat-elevation-z8 ">
+
+            <ng-container matColumnDef="Heads">
+                <th mat-header-cell class="sr" *matHeaderCellDef> Heads </th>
+                <td mat-cell class="sr" *matCellDef="let element"> {{element.Heads}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Total">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef> Total </th>
+                <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.Total}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="to30days">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef>0 to 30 days</th>
+                <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.to30days}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="to90days">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef>30 To 90 days</th>
+                <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.to90days}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="to180days">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef> 90 To 180 days </th>
+                <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.to180days}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="morethan180days">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef> 180+ days </th>
+                <td mat-cell class="numberPadding" *matCellDef="let element">
+                    {{element.morethan180days}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <!--column  highchart  -->
+    <div class="highchrt">
+        <div class="row">
+            <div id="subsidairyColumnChart" class="col-md-6 chart-container"></div>
+            <div id="utillizationColumnChart" class="col-md-6 chart-container"></div>
+        </div>
+        <div class="row">
+            <div id="limitsSanctionedColumnChart" class="col-md-6 chart-container"></div>
+        </div>
+    </div>
+</div>

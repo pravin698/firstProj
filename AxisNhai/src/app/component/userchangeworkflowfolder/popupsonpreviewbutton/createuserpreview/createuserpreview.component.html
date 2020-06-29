@@ -1,0 +1,41 @@
+<div>
+    <mat-dialog-content>
+        <div>
+            <table mat-table [dataSource]="dataSourcecreateuser" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="Fieldname">
+                    <th mat-header-cell class="sr" *matHeaderCellDef>Field Name
+                    </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.Fieldname}}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="CurrentValue">
+                    <th mat-header-cell class="sr" *matHeaderCellDef>Current Value</th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.CurrentValue}}
+                    </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="NewValue">
+                    <th mat-header-cell class="sr" *matHeaderCellDef>New Value </th>
+                    <td mat-cell class="right" *matCellDef="let element">
+                        {{element.NewValue}} </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <br />
+            <mat-form-field appearance="outline" class="example-full-width comment">
+                <mat-label>Leave a comment, at least 10 characters in length </mat-label>
+                <textarea matInput [(ngModel)]="comment"></textarea>
+            </mat-form-field>
+            <br />
+            <button mat-raised-button mat-dialog-close>Close</button>&nbsp;&nbsp;
+            <button mat-raised-button (click)="Onreject()">Reject</button>&nbsp;&nbsp;
+            <button mat-raised-button (click)="OnApprove()">Approve</button>&nbsp;&nbsp;
+        </div>
+    </mat-dialog-content>
+</div>

@@ -1,0 +1,221 @@
+.hrader{
+  margin-left: 15px; padding-top: 25px;
+}
+.radiolft{
+  margin-left: 2px;
+}
+.icon{
+  width: 100%; float:right
+}
+.date{
+  float:left
+}
+.frdate{
+  margin-left:25px;width: 10rem
+}
+.todate{
+  margin-left: 5px;width: 10rem
+}
+.acc{
+  color: black;
+}
+#body {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 510px;
+}
+
+.mat-raised-button {
+  margin-left: 15px;
+  background-color: rgb(151, 20, 77);
+  color: #ffffff;
+  height: 35px;
+  width: 6rem;
+}
+
+.AmountStyle {
+  width: 18px;
+  height: 18px;
+}
+
+h5 {
+  color: black;
+  font-family: Lato !important;
+}
+
+.color {
+  color: black;
+  font-family: Lato !important;
+}
+.table-container {
+  min-height: 100px;
+  max-height: 400px;
+  width: 1000px;
+  overflow: auto;
+}
+
+table {
+  width: 1500px;
+}
+
+.mat-cell {
+  color: black;
+  font-family: 'Lato';
+}
+
+.mat-header-cell {
+  color: white;
+  font-family: 'Lato';
+}
+
+.right {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.mat-header-row {
+  background-color: rgb(151, 20, 77);
+}
+
+hr {
+  border-bottom: 1px solid rgb(151, 20, 77);
+  height: 1px;
+  width: 80%;
+  background-color: rgb(151, 20, 77);
+}
+
+tr,td,th {
+  border: 1px solid black;
+}
+
+.sr {
+  width: 100px;
+  text-align: center;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.rt {
+  padding-left: 17px;
+}
+
+.border {
+  height: 48px;
+}
+
+.excel {
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.refresh{
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.pdf {
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.mat-paginator {
+  background-color: white;
+  color: rgb(151, 20, 77);
+}
+
+::ng-deep .mat-select-value {
+  color: rgb(151, 20, 77);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+::ng-deep .mat-select-arrow {
+  color: rgb(151, 20, 77);
+}
+
+::ng-deep .mat-paginator-icon {
+  fill: rgb(151, 20, 77) !important;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: transparent;
+}
+
+::ng-deep .mat-paginator-range-label {
+  color: rgb(151, 20, 77);
+}
+
+::ng-deep .mat-paginator-page-size-label {
+  color: rgb(151, 20, 77);
+}
+
+::ng-deep .mat-form-field-flex {
+  align-items: center !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  margin-left: 2px;
+  padding-top: 0.1em !important;
+  padding-bottom: 14px !important;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgb(151, 20, 77) !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: rgb(151, 20, 77) !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  color: rgb(151, 20, 77) !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: rgb(151, 20, 77) !important;
+  font-family: Lato !important;
+}
+
+.searchBtn {
+  margin-left: 5px;
+  background-color: rgb(151, 20, 77);
+  padding: 0px 30px;
+  margin-top: 4px;
+  height: 42px;
+  font-family: Lato !important;
+  color: white;
+}
+
+.screenTitle {
+  font-family: Lato !important;
+}
+
+.amtInRupeesCrores {
+  float: right;
+}
+
+.amtRupees {
+  font-family: Lato !important;
+}
+
+.amtCrores {
+  font-family: Lato !important;
+  margin-left: 30px;
+}
+
+.actNumber {
+  font-family: Lato !important;
+  margin-left: 10px;
+}

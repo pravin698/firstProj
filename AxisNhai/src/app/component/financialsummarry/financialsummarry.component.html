@@ -1,0 +1,91 @@
+<div id="body">
+  <div #content class="tableContent">
+    <div class="hrader">
+      <h5>Financial Summary</h5>
+    </div>
+
+    <div class="radio-btns radio">
+      <label class="radiolft" for="rupeesRadio">
+      <input type="radio" class="AmountStyle with-gap radiorupes" value="Amount in Rupees" name="Amount"
+        [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)"  id="rupeesRadio" />
+     Amount in Rupees</label>
+
+     <label class="radiolft" for="croresRadio">
+      <input type="radio" class="AmountStyle radiocror" value="Amount in Crores"
+        name="Amount" [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" id="croresRadio"/>
+    Amount in Crores </label>
+    </div>
+    <br />
+  <br />
+  <div class="icon">
+    <a (click)="onRefreshClick()" class="hyperLink"> <img src="assets/img/refresh.png" class="refresh"></a>
+    <a (click)="onExcelDownload()"  class="hyperLink"> <img src="assets/img/excel.png" class="excel"></a>
+    <a (click)="onPDFDownload()"> <img src="assets/img/pdf.png" class="excel"></a>
+    <br /><br />
+  </div>
+
+  <div class="tbla">
+    <table mat-table [dataSource]="dataSources" class="mat-elevation-z8 ">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="10%"> S.No. </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deposit">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="45%"> Deposit </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.deposit}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef width="45%"> Amount </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.amount | customCurrencyPipe}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="tbla">
+    <table mat-table [dataSource]="datas" class="mat-elevation-z8 ">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="10%"> S.No. </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="disbursement">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="45%"> Disbursement </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.disbursement}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef width="45%"> Amount </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.amount | customCurrencyPipe}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayed"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayed;"></tr>
+    </table>
+  </div>
+  <div class="tbla">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="10%"> S.No. </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="summary">
+        <th mat-header-cell class="sr" *matHeaderCellDef width="45%"> Summary </th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.summary}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell class="numberPadding" *matHeaderCellDef width="45%"> Amount </th>
+        <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.amount | customCurrencyPipe}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+    </table>
+  </div>
+</div>
+</div>

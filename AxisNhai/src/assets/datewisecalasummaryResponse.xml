@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.finacle.com/fixml executeFinacleScript.xsd">
+    <Header>
+        <ResponseHeader>
+            <RequestMessageKey>
+                <RequestUUID>SS20_ss02_sh057</RequestUUID>
+                <ServiceRequestId>executeFinacleScript</ServiceRequestId>
+                <ServiceRequestVersion>10.2</ServiceRequestVersion>
+                <ChannelId>COR</ChannelId>
+            </RequestMessageKey>
+            <ResponseMessageInfo>
+                <BankId>01</BankId>
+                <TimeZone/>
+                <MessageDateTime>2020-03-21T09:05:33.008</MessageDateTime>
+            </ResponseMessageInfo>
+            <UBUSTransaction>
+                <Id/>
+                <Status/>
+            </UBUSTransaction>
+            <HostTransaction>
+                <Id/>
+                <Status>SUCCESS</Status>
+            </HostTransaction>
+            <HostParentTransaction>
+                <Id/>
+                <Status/>
+            </HostParentTransaction>
+            <CustomInfo/>
+        </ResponseHeader>
+    </Header>
+    <Body>
+        <executeFinacleScriptResponse>
+            <ExecuteFinacleScriptOutputVO/>
+            <executeFinacleScript_CustomData>
+                <CALASummaryDtl>
+                    <acctNum_1>918029999658401</acctNum_1>
+                    <pdName_1>AKSHAY KUMAR</pdName_1>
+                    <roName_1>MUMBAI_1</roName_1>
+                    <roState_1>MAHARASHTRA</roState_1>
+                    <roZone_1>NORTH</roZone_1>
+                    <AllocatedLimits_1>1000000</AllocatedLimits_1>
+                    <UtilizedLimit_1>200000.00</UtilizedLimit_1>
+                    <UnUtilizedLimit_1>800000</UnUtilizedLimit_1>
+                    <acctNum_2>918029999658414</acctNum_2>
+                    <pdName_2>AKSHAY KUMAR</pdName_2>
+                    <roName_2>MUMBAI_1</roName_2>
+                    <roState_2>MAHARASHTRA</roState_2>
+                    <roZone_2>NORTH</roZone_2>
+                    <AllocatedLimits_2>700000</AllocatedLimits_2>
+                    <UtilizedLimit_2>600000.00</UtilizedLimit_2>
+                    <UnUtilizedLimit_2>100000</UnUtilizedLimit_2>
+                </CALASummaryDtl>
+                <totRecCnt>4</totRecCnt>
+                <sucFaiFlag>S</sucFaiFlag>
+                <message>SUCCESS</message>
+            </executeFinacleScript_CustomData>
+        </executeFinacleScriptResponse>
+    </Body>
+</FIXML>

@@ -1,0 +1,30 @@
+<div>
+    <div>
+        <table mat-table [dataSource]="dataSourcelockunlock" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="userid">
+                <th mat-header-cell class="sr" *matHeaderCellDef>User ID
+                </th>
+                <td mat-cell class="right" *matCellDef="let element">{{element.userid}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell class="sr" *matHeaderCellDef>Action Requested</th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.action}}
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <br />
+        <mat-form-field appearance="outline" class="example-full-width screenWidthheight">
+            <mat-label>Leave a comment, at least 10 characters in length </mat-label>
+            <textarea matInput [(ngModel)]="comment"></textarea>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button mat-dialog-close>Close</button>&nbsp;&nbsp;
+        <button mat-raised-button (click)="Onreject()">Reject</button>&nbsp;&nbsp;
+        <button mat-raised-button (click)="OnApprove()">Approve</button>&nbsp;&nbsp;
+    </div>
+</div>

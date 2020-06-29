@@ -1,0 +1,195 @@
+#body{
+    overflow-x:hidden;
+    margin-bottom: 219px;
+}
+.heading{
+  margin-left: 25px;padding-top: 25px;
+}
+.radio{
+  margin-right: 4%;float: right;
+}
+.radiomar{
+  margin-left: 2px;
+}
+.radiorupes{
+  display: inline;
+}
+.radiocror{
+  display: inline;
+  margin-left: 15px;
+}
+.date{
+  width: 11rem; 
+  margin-left: 25px;
+}
+.btnsearch{
+  background-color: #97144d; 
+  bottom: 0px; 
+  width: 6rem;
+  margin-top: 20px; 
+  color: white
+}
+.icon{
+  width: 100%; float:right; margin-right: 30px;
+}
+.tbla{
+  display: table;
+  margin-left: 25px; 
+  margin-bottom: 92px;
+}
+.tblb{
+  display: table-row; 
+  width: 100%;
+  justify-content:space-between;
+}
+.tblc{
+  display: table-cell;
+  margin-right: 5500px;
+}
+.tbld{
+  display: table-cell;
+}
+.tble{
+  cursor: pointer;
+  color: rgb(151,20,77);
+}
+.tblf{
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 30px;
+}
+table {
+    width: 90%;
+    height: 5%;
+   background-color: white;
+  }
+  .mat-cell{
+   color: black;
+   font-family: 'Lato';
+  }
+
+  .mat-header-cell{
+    color:white;
+    font-family: 'Lato';
+    
+  }
+  .right{
+     text-align: right;
+     padding-right: 2px;
+ }  
+  .mat-header-row {
+      background-color:rgb(151,20,77);
+  }
+
+  .row{
+      color:black;
+  }
+  hr{
+    border-bottom: 1px solid rgb(151,20,77) ;
+    height: 1px;
+    width: 80%;
+    background-color:rgb(151,20,77)  ;
+  }
+
+  tr,td,th{
+      //border:1px solid #ced4da;
+      border:1px solid black ;
+      width: 500px;
+  }
+
+  h5 {
+    color: black;
+    font-family: 'Lato';
+  }
+  .color{
+    font-family: 'Lato';
+  }
+  .AmountStyle{
+    width:18px;height:18px;
+  }
+
+  #currency-default{
+    color: blue;
+    background-color: blue;
+  }
+  .mat-radio-group{
+    color: rgb(138, 135, 135);
+  }
+
+  #example-radio-group-label{
+    color: blue;
+  }
+  .mat-radio-button{
+    color: blue;
+  }
+
+  .mat-raised-button{
+    
+    margin-left: 5px;
+    background-color: rgb(151,20,77) ;
+    padding:0px 30px;
+    margin-top: 4px;
+ 
+    height: 42px;
+    
+}
+.excel{
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor:pointer;
+}
+
+.infoMessage{
+  margin-top: -18px;
+  font-style: italic;
+  color: rgb(151,20,77);
+  font-size: small;
+  margin-left: 40px;
+}
+.refresh{
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin-right: 25px;
+  cursor:pointer;
+}
+
+.mat-form-field {
+ line-height: -5;
+}
+
+
+  
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+  color: #97144d !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: #97144d !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  color:#97144d !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color:#97144d !important;
+  font-family: Lato !important;
+}
+::ng-deep .mat-form-field-flex {
+  height: 48px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  color: red;
+  border-radius: 50%;
+  display: list-item;
+  margin-left: 15px;
+  
+}

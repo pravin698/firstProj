@@ -1,0 +1,207 @@
+.searchtxt {
+  font-family: Lato !important;
+  width: 300px !important;
+}
+
+.divupperelement {
+  display: inline;
+
+}
+
+hr {
+  border-bottom: 1px solid rgb(134, 31, 65);
+  height: 1px;
+  width: 80%;
+  background-color: rgb(134, 31, 65);
+}
+
+h5 {
+  color: black;
+  font-family: 'Lato';
+}
+
+.color {
+  color: black;
+  font-family: 'Lato';
+}
+
+.AmountStyle {
+  width: 18px;
+  height: 18px;
+}
+
+#body {
+  overflow-x: hidden;
+  margin-bottom: 436px;
+  padding-left: 25px;
+}
+
+table {
+  width: 100%;
+  height: 5%;
+  background-color: white;
+
+}
+
+.mat-cell {
+  color: black;
+  font-family: 'Lato';
+}
+
+.mat-header-cell {
+  color: white;
+  font-family: 'Lato';
+}
+
+.right {
+  text-align: right;
+}
+
+.mat-header-row {
+  background-color: rgb(134, 31, 65);
+}
+
+.row {
+  color: black;
+}
+
+hr {
+  border-bottom: 1px solid rgb(134, 31, 65);
+  height: 1px;
+  width: 80%;
+  background-color: rgb(134, 31, 65);
+}
+
+tr,
+td,
+th {
+  //border:1px solid #ced4da;
+  border: 1px solid black;
+  width: 500px;
+}
+
+.sr {
+  width: 100px;
+  text-align: center;
+}
+
+.a {
+  padding-left: 20px;
+}
+
+.mat-raised-button[disabled] {
+  background-color: grey
+}
+
+:host {
+  .mat-slide-toggle {
+    &.mat-checked {
+      ::ng-deep.mat-slide-toggle-bar::after {
+        content: 'UNLOCK';
+        font-size: 60%;
+        font-weight: 700;
+        text-align: center;
+        color: #97144d !important;
+        position: absolute;
+        left: 10px;
+        top: -5px;
+        width: 2rem;
+      }
+    }
+
+    &:not(.mat-checked) {
+      ::ng-deep.mat-slide-toggle-bar::after {
+        content: 'LOCK';
+        font-size: 60%;
+        font-weight: 700;
+        color: white;
+        position: absolute;
+        left: 21px;
+        top: -5px;
+        width: 2rem;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-form-field-flex {
+  align-items: center !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  margin-left: 2px;
+  padding-top: 0.1em !important;
+  padding-bottom: 14px !important;
+}
+
+.mat-raised-button {
+  margin-left: 5px;
+  background-color: rgb(134, 31, 65);
+  padding: 0px 30px;
+  margin-top: 4px;
+  height: 42px;
+  text-align: center;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #97144d !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: #97144d !important;
+  opacity: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  color: #97144d !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: #97144d !important;
+  font-family: Lato !important;
+}
+
+#btnsearchcriteria {
+  color: white
+}
+
+.mainDiv{
+  margin-left: 15px; padding-top: 25px;
+}
+
+.search{
+  cursor: pointer;
+}
+
+.excelAnchor{
+  float:right;margin-right:20px
+}
+
+.refresh{
+  margin-top: 8px;
+  margin-left:5px;
+  cursor: pointer;
+}
+
+.adduserbtn{
+  padding-right: 15px;
+}
+
+.bgColorWhite{
+  background-color: #ffff;
+}
+
+.link{
+  cursor: pointer;
+  text-decoration:underline;
+  color:rgb(151,20,77);
+}
+
+.textCenter{
+  text-align: center;
+}
+
+.cursor{
+  cursor: pointer;
+}

@@ -1,0 +1,60 @@
+<div id="body">
+  <div class="hrader">
+    <div>
+      <h5 class="screenTitle">Beneficiary Master</h5>
+    </div>
+  </div>
+
+  <div class="pad">
+    <button mat-raised-button (click)="openDialog()" class="clr">Create Beneficiary</button>
+    <a (click)="getDateRefresh()"> <img src="assets/img/refresh.png" class="refresh icon"></a>
+    <a (click)="onExcelDownloadClick()"> <img src="assets/img/excel.png" class="refresh icon"></a>
+  </div>
+
+  <br /><br /><br />
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbla">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell class="sr" *matHeaderCellDef>S.NO. </th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="beneficiaryname">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Beneficiary Name</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.beneficiaryname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="beneficiarybankaccount">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Beneficiary Bank A/C</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.accountnumber}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ifsccode">
+        <th mat-header-cell class="sr" *matHeaderCellDef>IFSC Code</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.ifsccode}} </td>
+      </ng-container>
+
+      <ng-container class="tblb" matColumnDef="balance">
+        <th mat-header-cell class="right tblb" *matHeaderCellDef>Balance</th>
+        <td mat-cell class="right" *matCellDef="let element"> {{element.amount}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="debitAct">
+        <th mat-header-cell class="sr" *matHeaderCellDef>Debit Account</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.debitact}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="calaActName">
+        <th mat-header-cell class="sr" *matHeaderCellDef>CALA Account Name</th>
+        <td mat-cell class="sr" *matCellDef="let element"> {{element.calactname}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[10,30,50,100]"
+      (page)="pageEvent($event)" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

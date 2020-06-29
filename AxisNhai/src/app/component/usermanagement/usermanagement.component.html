@@ -1,0 +1,124 @@
+<div id="body">
+    <div class="mainDiv">
+        <div>
+            <h5>User Management</h5>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <mat-form-field appearance="outline" class="searchtxt">
+                    <mat-label>Search</mat-label>
+                    <!-- <input matInput (keyup)="applyFilter($event)"> -->
+                    <input matInput [(ngModel)]='searchCriteria'>
+                    <mat-icon matSuffix class="search" (click)="onSearchCriteria()">search</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <a class="excelAnchor" (click)="getDateRefresh()">
+                    <img src="assets/img/refresh.png" class="refresh">
+                </a>
+                <a mat-list-item class="excelAnchor" (click)="openDialogNewUser()">
+                    <button mat-raised-button id="btnsearchcriteria">
+                        <span class="material-icons adduserbtn">group_add</span>
+                        New User
+                    </button>
+                </a>
+            </div>
+        </div>
+        <br />
+        <div class="ng-container bgColorWhite">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Sr No </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.id}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userid">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User ID </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userid}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userlevel">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User Level </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userlevel}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userType">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User Type </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userType}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userZone">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User Zone </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userZone}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userState">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User State </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userState}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userRegion">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User Regional Office </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userRegion}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userPD">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User Project Director </th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userPD}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="userCala">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> User Cala</th>
+                    <td mat-cell class="right" *matCellDef="let element">{{element.userCala}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="username">
+                    <th mat-header-cell class="sr" *matHeaderCellDef>User Name</th>
+
+                    <td mat-cell class="right link"
+                        *matCellDef="let element"><a class="itc-lb-more-info-link"
+                            
+                            (click)="OnSelectUser(element)">{{element.username}} </a></td>
+                </ng-container>
+
+                <ng-container matColumnDef="userEmail">
+                    <th mat-header-cell class="sr" *matHeaderCellDef>E-mail</th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.userEmail}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="mobilenumber">
+                    <th mat-header-cell class="sr" *matHeaderCellDef>Mobile Number </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.mobilenumber}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="deleteAction">
+                    <th mat-header-cell class="sr" *matHeaderCellDef [attr.colspan]="2">Actions</th>
+                    <td mat-cell *matCellDef="let row" class="textCenter">
+                        <mat-icon matSuffix class="cursor" (click)="onActiveAction($event,row)">
+                            {{row.active ? 'delete_outline' : 'person_add'}}</mat-icon>
+                        <!-- <button mat-icon-button (click)="openDialog()"><img src="assets/img/trash.png"
+                                class=excel></button> -->
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="toggleAction">
+                    <th mat-header-cell class="sr" *matHeaderCellDef [attr.rowspan]="2" [ngStyle]="{'display': 'none'}">
+                        Lock/Unlock User</th>
+                    <td mat-cell class="textCenter" *matCellDef="let row">
+                        <mat-slide-toggle (change)="onSlideToggle($event.checked,row)" [checked]="toggleStatus(row)"
+                            [color]=""></mat-slide-toggle>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[10,30,50,100]"
+                (page)="pageEvent($event)" showFirstLastButtons>
+            </mat-paginator>
+            <br />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div id="body">
+  <div #content class="tableContent">
+    <div class="heading">
+      <h5>Home (Dashboard)</h5>
+    </div>
+
+    <div class="radio-btns radio">
+
+     <label class="color radiolft" for="amtRupees"><input class="amtRupees" type="radio" id="amtRupees" value="Amount in Rupees" name="Amount"
+      [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />Amount in Rupees</label>
+      &nbsp;
+      
+      <label class="color radiolft"  for="amtCrores"><input class="amtCrores" type="radio" id="amtCrores" value="Amount in Crores" name="Amount"
+        [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />Amount in Crores </label>
+
+    </div>
+    <div class="icon">
+      <a (click)="onRefreshClick()"> <img src="assets/img/refresh.png" class="refresh"></a>
+      <a (click)="onExcelDownload()"> <img src="assets/img/excel.png" class="excel"></a>
+      <a (click)="onPDFDownload()"> <img src="assets/img/pdf.png" class="excel"></a>
+    </div>
+    <br />
+    <div>
+    <div class="tbla">
+
+      <div class="tblb">
+
+        <div class="tblc">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="heads">
+              <th mat-header-cell class="sr" *matHeaderCellDef> Heads </th>
+              <td mat-cell class="right" *matCellDef="let element"> {{element.heads}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amount">
+              <th mat-header-cell class="numberPadding" *matHeaderCellDef> Amount </th>
+              <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.amount | customCurrencyPipe}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        <div class="tbld">
+          <table mat-table [dataSource]="dataSources" class="mat-elevation-z8 ;">
+
+            <ng-container matColumnDef="accounttype">
+              <th mat-header-cell class="sr" *matHeaderCellDef> Account Type </th>
+              <td mat-cell class="right" *matCellDef="let element"> {{element.accounttype}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalcount">
+              <th mat-header-cell class="numberPadding" *matHeaderCellDef> Total Count </th>
+              <td mat-cell class="numberPadding" *matCellDef="let element"><a routerLink="/main/account" class="tblcount"> {{element.totalcount}} </a> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

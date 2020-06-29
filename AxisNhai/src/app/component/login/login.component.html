@@ -1,0 +1,85 @@
+<body class="text-center">
+  <div class="form-signin">
+    <div class="row head">
+      <h6>WELCOME BACK! Happy to see you again!</h6>
+    </div>
+
+    <!-- USername Input-->
+    <div class="form-group margins">
+      <div class="labelClass"><span class="dot"></span> &nbsp; <label>Username</label>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend bg-transparent">
+          <span class="input-group-text bg-transparent border-right-0 axiscolor">
+            <i class="material-icons">person_outline</i>
+          </span>
+        </div>
+        <input name="username" type="text"
+          class="form-control form-control-lg  width-auto axiscolor" name="username" [(ngModel)]='usernameVal' />
+
+      </div>
+    </div>
+    <div class="form-group rightMargin">
+      <a routerLink='/login/forgotyourusername' class="hyperlink">Forgot Username?</a>
+    </div>
+
+    <!-- Password Input-->
+    <div class="form-group margins">
+      <div class="labelClass"><span class="dot"></span> &nbsp; <label>Password</label></div>
+      <div class="input-group">
+        <div class="input-group-prepend bg-transparent">
+          <span class="input-group-text bg-transparent border-right-0 axiscolor">
+            <i class="material-icons">lock_outline</i>
+          </span>
+        </div>
+        <input name="password" type="password" class="form-control form-control-lg  width-auto axiscolor" [(ngModel)]='passwordVal' />
+      </div>
+    </div>
+
+    <!-- Forget Password-->
+    <div class="form-group rightMargin">
+      <a  routerLink='/login/forgotyourpassword' class="hyperlink">Forgot Password?</a>
+    </div>
+
+    <!-- Captcha Button-->
+    <div class="form-group margins">
+      <div class="input-group">
+        <div class="captcha"><strong>{{captchaCode}}</strong></div>
+        <a class="genCapchabtn" (click)="generateCaptcha()">  
+          <img  class="captchaImg" src="assets/img/refresh.png" class="refresh" >
+        </a>
+      </div>
+    </div>
+
+    <!-- Captcha Input-->
+    <div class="form-group margins">
+      <!-- Label class-->
+      <div class="labelClass full-width">
+        <span class="dot"></span> &nbsp; 
+        <label class="notes">Captcha is case sensitive: </label>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend bg-transparent">
+        </div>
+        <input name="captcha" class="form-control form-control-lg  width-auto axiscolor" [(ngModel)]='capchaVal' />
+      </div>
+    </div>
+
+    <div class="my-12">
+      <button mat-raised-button type="submit" class=" btn btn-block col-md-4 auth-form-btn logSubmit"
+        (click)="btnClick(usernameVal,passwordVal);">Submit</button>
+    </div>
+    <div class="labelClass full-width">
+      <!-- <span class="dot"></span> &nbsp;  -->
+      <label class="notes">After 5 incorrect attempts user account will be locked, 
+        you have {{loginAttempts}}/5 pending attempts, contact adminstrator to unlock account 
+      </label>
+    </div>
+  </div>
+</body>
+<!-- <mat-toolbar color="warn">
+  <mat-toolbar-row class="toolbarRow">
+  <app-footer></app-footer>
+  </mat-toolbar-row>
+</mat-toolbar> -->

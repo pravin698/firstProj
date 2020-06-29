@@ -1,0 +1,45 @@
+<div class="bgclr">
+    <!-- limit lewdger label tag   -->
+   <div class="col-sm-8 header">
+       <h4 class="headerclr" mat-dialog-title>Award Number Details</h4>
+   </div>
+   <br/>
+   <mat-dialog-content >
+    <div class="tbl">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+    
+            <ng-container matColumnDef="accountno">
+                <th mat-header-cell class="sr" *matHeaderCellDef> A/C Number </th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.AccountNum}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="holdername">
+                <th mat-header-cell class="sr" *matHeaderCellDef>A/C holder Name</th>
+                <td mat-cell class="right" *matCellDef="let element"> {{element.AccountName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="opendate">
+                <th mat-header-cell class="sr" *matHeaderCellDef> A/C Open Date </th>
+                <td mat-cell class="right"  *matCellDef="let element"> {{element.AcctOpnDate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="limitdate">
+                <th mat-header-cell class="sr" *matHeaderCellDef> Limit Date </th>
+                <td mat-cell class="right"  *matCellDef="let element">{{element.dateOfTOD}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="limitamount">
+                <th mat-header-cell class="numberPadding" *matHeaderCellDef> Total Limit Amount </th>
+                <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.TODAmt }} </td>
+            </ng-container>
+
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-dialog-content>
+
+    <button mat-raised-button  mat-dialog-close class="btn">Close</button>
+
+</div>

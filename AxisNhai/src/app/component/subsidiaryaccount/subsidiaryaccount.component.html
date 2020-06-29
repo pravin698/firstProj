@@ -1,0 +1,55 @@
+<div class="titleBackGround">
+    <!-- limit lewdger label tag   -->
+   <div class="col-sm-8 titleMargin">
+       <h4 class="titleColor" mat-dialog-title>Subsidiary Account Details</h4>
+   </div>
+   <br/>
+   <mat-dialog-content >
+    <div class="subsidaryTable">
+        <table mat-table [dataSource]="dataSources" class="mat-elevation-z8 ">
+    
+            <ng-container matColumnDef="srno">
+                <th mat-header-cell class="sr" *matHeaderCellDef> Sr.NO </th>
+                <td mat-cell class="right"  *matCellDef="let element"> {{element.REC_CNT}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="subsidiaryaccountno">
+                <th mat-header-cell  class="sr" *matHeaderCellDef>A/C Number</th>
+                <td mat-cell class="right"  *matCellDef="let element"> {{element.SubsidiaryAcctNum}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subsidiaryactName">
+                <th mat-header-cell  class="sr" *matHeaderCellDef>A/C Holder Name</th>
+                <td mat-cell class="right"  *matCellDef="let element"> {{element.AcctName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totallimit">
+                <th mat-header-cell  class="numberPadding" *matHeaderCellDef> Total Limits </th>
+                <td mat-cell class="numberPadding"  *matCellDef="let element"> {{element.TotLimit | customCurrencyPipe}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="usedlimit">
+                <th mat-header-cell  class="numberPadding" *matHeaderCellDef> Used Limits </th>
+                <td mat-cell class="numberPadding"  *matCellDef="let element">{{element.UsedLimit | customCurrencyPipe}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fundusedpercent">
+                <th mat-header-cell  class="numberPadding" *matHeaderCellDef> Fund Used (%) </th>
+                <td mat-cell class="right"  *matCellDef="let element"> {{element.FundUsedPerc | customCurrencyPipe}} %</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actBalance">
+                <th mat-header-cell  class="numberPadding" *matHeaderCellDef> Account Balance </th>
+                <td mat-cell class="numberPadding"  *matCellDef="let element"> {{element.EffAvailableAmt | customCurrencyPipe}} </td>
+            </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[10,20,30,50,100]"  (page)="pageEvent($event)" showFirstLastButtons></mat-paginator> 
+      </div>
+    </mat-dialog-content>
+
+    <button mat-raised-button  mat-dialog-close class="close">Close</button>
+
+</div>

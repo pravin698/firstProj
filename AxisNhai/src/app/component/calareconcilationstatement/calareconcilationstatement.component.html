@@ -1,0 +1,137 @@
+<div id="body">
+
+  <div class="hrader">
+    <h5 class="screenTitle"> CALA Reconciliation Statement</h5>
+  </div>
+
+  <div>
+    <div class="amtInRupeesCrores">
+      <input class="amtRupees" type="radio" id="amtRupees" value="Amount in Rupees" name="Amount"
+        [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+      <label class="color radiolft" for="amtRupees">Amount in Rupees</label>
+
+      <input class="amtCrores" type="radio" id="amtCrores" value="Amount in Crores" name="Amount"
+        [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+      <label class="color radiolft" for="amtCrores">Amount in Crores </label>
+    </div>
+
+
+    <div class="row date">
+
+      <mat-form-field appearance="outline" class="frdate">
+        <mat-label>From Date</mat-label>
+        <input matInput [matDatepicker]="picker" class="color" [(ngModel)]='fromdate' readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="todate">
+        <mat-label>To Date</mat-label>
+        <input matInput [matDatepicker]="picker1" class="color" [(ngModel)]='todate' readonly [min]='fromdate'>
+        <mat-datepicker-toggle matSuffix [for]="picker1" class="color"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="actNumber">
+        <mat-label>Account Number</mat-label>
+        <input  type="number" matInput class="acc" [(ngModel)]='accountnumber'>
+      </mat-form-field>
+      <button mat-raised-button id="btnlimitasondate" class="searchBtn"
+        (click)="onSearchclick()">Search</button>
+    </div>
+  </div>
+  <div class="icon">
+    <a (click)="onRefreshClick()"> <img src="assets/img/refresh.png" class=excel></a>
+
+    <a (click)="onExcelDownload()"> <img src="assets/img/excel.png" class=pdf></a>
+    <br /><br />
+  </div>
+
+<div class="table-container">
+  <table mat-table [dataSource]="dataSourcecala" class="mat-elevation-z8 ">
+    <ng-container matColumnDef="no">
+      <th mat-header-cell class="sr" *matHeaderCellDef> S.NO. </th>
+      <td mat-cell class="sr" *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountnumber">
+      <th mat-header-cell class="sr" *matHeaderCellDef> Account Number </th>
+      <td mat-cell class="sr" *matCellDef="let element"> {{element.acctNum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountname">
+      <th mat-header-cell class="sr" *matHeaderCellDef>Account Name</th>
+      <td mat-cell class="sr" *matCellDef="let element"> {{element.acctName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalsanctionedlimits">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Total Sanctioned Limits</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.AllocatedLimits | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="limitsutilizedperprevyear">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Utilized per prev Year </th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.UtilizedLimitTillPrvMonth | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="limitsutilizedincurryear">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Limits Utilized in curr year</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.UtilizedLimitInCurrMonth | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="unutilizedlimit">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Unutilized Limit</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.UnUtilizedLimit | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="electtrf">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Elect TRF</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.ElecTrf | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tdstrf">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>TDS TRF</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.PaidForTDS | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="otherdrtrf">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Other DR TRF</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.OtherDebit | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="returns">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Returns</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.Returns | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dddebit">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>DD Debit</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.DDdebit | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clearingdebit">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Clearing Debit</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.ClearingDr | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lessfundscrbcktoacctmiss">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Less Funds Cr back to Acct Miss</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.CrBkToAcct | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lessoutwardchequereturn">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Less Outward Cheque Return</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.OutChqRet | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="othercreditdepsits">
+      <th mat-header-cell class="numberPadding" *matHeaderCellDef>Other Credit Depsits</th>
+      <td mat-cell class="numberPadding" *matCellDef="let element"> {{element.OtherCredit | customCurrencyPipe}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[10,30,50,100]"
+    (page)="pageEvent($event)" showFirstLastButtons></mat-paginator>
+</div>
+</div>

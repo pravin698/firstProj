@@ -1,0 +1,281 @@
+<div id="body bodyflow">
+    <div class="hrader">
+        <h5 class="screenTitle">Datewise Limits</h5>
+    </div>
+</div>
+<div class="wd">
+    <div class="amtInRupeesCrores">
+        <input class="amtRupees" type="radio" id="amtRupees" value="Amount in Rupees" name="Amount"
+            [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+        <label class="color radiolft" for="amtRupees">Amount in Rupees</label>
+
+        <input class="amtCrores" type="radio" id="amtCrores" value="Amount in Crores" name="Amount"
+            [(ngModel)]='radioValue2' (change)="onItemChange(radioValue2)" />
+        <label class="color radiolft" for="amtCrores">Amount in Crores </label>
+    </div>
+
+    <div class="row date">
+        <mat-form-field appearance="outline" class="asdate">
+            <mat-label>Limit As On Date</mat-label>
+            <input matInput [matDatepicker]="picker" class="color" [(ngModel)]='limitAsOndate'
+                 readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="asmonth">
+            <mat-label>Limit As on Month</mat-label>
+            <input matInput [matDatepicker]="picker1" class="color" [(ngModel)]='limitAsOnMonth'
+                 readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker1" class="color"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <!-- startView="multi-year" (yearSelected)="chosenYearHandler($event)"
+          (monthSelected)="chosenMonthHandler($event, picker1)" -->
+        </mat-form-field>
+        <button mat-raised-button id="btnlimitasondate" class="searchBtn" (click)="onSearchclick()">Submit</button>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<div class="datelimit">
+    <label class="color dateaslimit">Datewise Limit As on {{dateSelected}}</label>
+</div>
+
+<div>
+    <br />
+    <div>
+        <label class="color tblzn">Zonewise Analysis</label>
+        <div class="icon">
+            <a (click)="onZoneRefreshClick()">  <img  src="assets/img/refresh.png" class=excel></a>
+            
+            <a (click)="onZoneExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+        </div>
+        <div class="tbla">
+            <table mat-table [dataSource]="dataSources" class="mat-elevation-z8 ">
+
+                <ng-container matColumnDef="no">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> S.No. </th>
+                    <td mat-cell class="right" *matCellDef="let element; let i = index;">
+                        {{i + 1}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="zone">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Zone </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.ZoneName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="subsidiaries">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Subsidiaries </th>
+                    <td mat-cell class="right" *matCellDef="let element">
+                        {{element.CALAAccount || element.TotalCALAAccount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitsgranted">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Granted </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.AllocatedLimit || element.TotalAllocatedLimit}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitUnutilized">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Unutilized </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.UnUtilizedLimit || element.TotalUnUtilizedLimit}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitUtilized">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Utilized </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.UtilizedLimit || element.TotalUtilizedLimit}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+    <br />
+    <div>
+        <label class="color tblzn">Regional Office Level Analysis</label>
+        <div class="icon">
+            <a (click)="onRORefreshClick()">  <img  src="assets/img/refresh.png" class=excel></a>
+            
+            <a (click)="onROExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+        </div>
+        <div class="tbla">
+            <table mat-table [dataSource]="roParsedData" class="mat-elevation-z8 ">
+
+                <ng-container matColumnDef="no">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> S.No. </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.Serial}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="RegionalOffices">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Regional Office Name </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.RegionalOficerName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="subsidiaries">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Subsidiaries </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.CALAAccount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitsgranted">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Granted </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.AllocatedLimit | customCurrencyPipe}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitUnutilized">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Unutilized </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.UnutilizedLimit | customCurrencyPipe}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitUtilized">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Utilized </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.UsedLimit | customCurrencyPipe}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+            </table>
+            <mat-paginator [length]="rototalCount" [pageSize]="roPageSize" [pageSizeOptions]="[10,20,30,50,100]"
+                (page)="pageEventForRO($event)" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+    <div>
+        <label class="color tblzn">Project Director Level Analysis</label>
+        <div class="icon">
+            <a (click)="onPDRefreshClick()">  <img  src="assets/img/refresh.png" class=excel></a>
+            
+            <a (click)="onPDExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+        </div>
+        <div class="tbla">
+            <table mat-table [dataSource]="poParsedData" class="mat-elevation-z8 ">
+
+                <ng-container matColumnDef="no">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> S.No. </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.Serial}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="RegionalOffices">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Regional Office Name </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.RegionalOficer}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="ProjectDirector">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Project Director Name </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.ProjectDirector}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="subsidiaries">
+                    <th mat-header-cell class="sr" *matHeaderCellDef> Subsidiaries </th>
+                    <td mat-cell class="right" *matCellDef="let element"> {{element.CALAAccount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitsgranted">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Granted </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.AllocatedLimit | customCurrencyPipe}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitUnutilized">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Unutilized </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.UnutilisedLimit | customCurrencyPipe}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="limitUtilized">
+                    <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Utilized </th>
+                    <td mat-cell class="numberPadding" *matCellDef="let element">
+                        {{element.UsedLimit | customCurrencyPipe}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+            </table>
+            <mat-paginator #uploadResultPaginator [length]="pdtotalCounts" [pageSize]="pdPageSize"
+                [pageSizeOptions]="[10,20,30,50,100]" (page)="pageEventForPD($event)" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label class="color tblzn">Subsidiary Level Analysis</label>
+            <div class="icon">
+                <a (click)="onCALARefreshClick()">  <img  src="assets/img/refresh.png" class=excel></a>
+                
+                <a (click)="onCALAExcelDownload()">  <img  src="assets/img/excel.png" class=refresh></a>
+            </div>
+            <div class="tbla">
+                <table mat-table [dataSource]="calaParsedData" class="mat-elevation-z8 ">
+
+                    <ng-container matColumnDef="no">
+                        <th mat-header-cell class="sr" *matHeaderCellDef> S.No. </th>
+                        <td mat-cell class="right" *matCellDef="let element ;">
+                            {{element.no}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="zone">
+                        <th mat-header-cell class="sr" *matHeaderCellDef> Zone </th>
+                        <td mat-cell class="right" *matCellDef="let element"> {{element.roZone}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="state">
+                        <th mat-header-cell class="sr" *matHeaderCellDef>State </th>
+                        <td mat-cell class="right" *matCellDef="let element">
+                            {{element.roState}}
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="RegionalOffices">
+                        <th mat-header-cell class="sr" *matHeaderCellDef> Regional Office Name </th>
+                        <td mat-cell class="sr" *matCellDef="let element"> {{element.roName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="ProjectDirector">
+                        <th mat-header-cell class="sr" *matHeaderCellDef> Project Director Name </th>
+                        <td mat-cell class="sr" *matCellDef="let element"> {{element.pdName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="AccountNo">
+                        <th mat-header-cell class="sr" *matHeaderCellDef> Account Number </th>
+                        <td mat-cell class="sr" *matCellDef="let element"> {{element.acctNum}} </td>
+                    </ng-container>
+
+                    <!-- <ng-container matColumnDef="subsidiaries">
+                        <th mat-header-cell class="right" *matHeaderCellDef> Subsidiaries </th>
+                        <td mat-cell class="right" *matCellDef="let element"> {{element.subsidiaries}} </td>
+                    </ng-container> -->
+
+                    <ng-container matColumnDef="limitsgranted">
+                        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Granted </th>
+                        <td mat-cell class="numberPadding" *matCellDef="let element">
+                            {{element.AllocatedLimits | customCurrencyPipe}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="limitUnutilized">
+                        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Unutilized </th>
+                        <td mat-cell class="numberPadding" *matCellDef="let element">
+                            {{element.UnUtilizedLimit | customCurrencyPipe}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="limitUtilized">
+                        <th mat-header-cell class="numberPadding" *matHeaderCellDef> Limits Utilized </th>
+                        <td mat-cell class="numberPadding" *matCellDef="let element">
+                            {{element.UtilizedLimit | customCurrencyPipe}} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns4"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns4;"></tr>
+                </table>
+                <mat-paginator #uploadPaginator [length]="totalCountCALA" [pageSize]="calaPageSize"
+                    [pageSizeOptions]="[10,20,30,50,100]" (page)="pageEventForCALA($event)" showFirstLastButtons>
+                </mat-paginator>
+            </div>
+        </div>
+
+    </div>
+</div>
