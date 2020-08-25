@@ -27,7 +27,7 @@
     "angular-captcha": "^3.7.4",
     "bootstrap": "^4.4.1",
     "hammerjs": "^2.0.8",
-    "highcharts": "^8.0.4",
+    "highcharts": "^8.1.1",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
     "jspdf-autotable": "^3.4.4",
